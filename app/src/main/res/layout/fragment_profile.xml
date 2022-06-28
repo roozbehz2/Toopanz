@@ -57,6 +57,7 @@
                 android:layout_gravity="center"
                 app:cardCornerRadius="@dimen/_50sdp"
                 app:cardElevation="0dp"
+                android:backgroundTint="@color/transparent"
                 app:layout_constraintBottom_toTopOf="@+id/txtNameUser"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +67,7 @@
                     android:id="@+id/imgProfile"
                     android:layout_width="@dimen/_75sdp"
                     android:layout_height="@dimen/_75sdp"
-                    android:background="@color/blue"
+                    android:src="@drawable/ic_profile"
                     android:scaleType="centerCrop" />
 
             </androidx.cardview.widget.CardView>
@@ -78,7 +79,6 @@
                 android:layout_height="0dp"
                 android:gravity="bottom|center"
                 android:paddingBottom="@dimen/_3sdp"
-                android:text="روزبه زمانی"
                 android:textColor="@color/blackToopan"
                 app:autoSizeMaxTextSize="@dimen/_14ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"
@@ -95,7 +95,6 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center|top"
-                android:text="09361101775"
                 android:textColor="@color/grey1"
                 app:autoSizeMaxTextSize="@dimen/_12ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"

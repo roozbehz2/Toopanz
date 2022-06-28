@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 requestServer()
             } else {
                 binding.refreshLogin.visibility = View.INVISIBLE
-                Utils.showSnackBar(binding.btnLogin, getString(R.string.noInternet))
+                Utils.showSnackBar(applicationContext,binding.btnLogin, getString(R.string.noInternet), getColor(R.color.snackBar))
                 binding.btnLogin.isEnabled = true
             }
         }
@@ -84,7 +84,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     binding.btnLogin.isEnabled = true
                     if (error != null) {
                         error.message?.let {
-                            Utils.showSnackBar(binding.btnLogin, it)
+                            Utils.showSnackBar(applicationContext,binding.btnLogin, it, getColor(R.color.snackBar))
                         }
                     }
                 }

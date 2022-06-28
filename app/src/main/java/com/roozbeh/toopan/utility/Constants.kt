@@ -1,5 +1,11 @@
 package com.roozbeh.toopan.utility
 
+import android.os.Environment
+import android.provider.Settings.Global.getString
+import com.roozbeh.toopan.R
+import com.roozbeh.toopan.app.MyApplication
+import java.io.File
+
 object Constants {
 
 
@@ -26,4 +32,13 @@ object Constants {
     const val GET_GENDER = "/user/get-sex"
     const val POST_UPDATE_PROFILE = "/user/update-profile"
     const val POST_UPLOAD_PROFILE = "/user/upload-profile/"
+
+
+    //Folders
+    val BASE_FOLDER =
+        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).absolutePath +
+                File.separator + MyApplication.getContext().getString(R.string.app_name) + File.separator
+
+    val MEDIA = BASE_FOLDER + File.separator + MyApplication.getContext().getString(R.string.Image)
+
 }

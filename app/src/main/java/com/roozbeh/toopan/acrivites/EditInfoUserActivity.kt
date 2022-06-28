@@ -24,15 +24,13 @@ import com.roozbeh.toopan.R
 import com.roozbeh.toopan.app.MyApplication
 import com.roozbeh.toopan.communication.netDetector.NetDetector
 import com.roozbeh.toopan.communication.volleyPackage.FileDataPart
+import com.roozbeh.toopan.communication.volleyPackage.VolleyController
 import com.roozbeh.toopan.communication.volleyPackage.VolleyFileUploadRequest
 import com.roozbeh.toopan.communication.volleyRequest.*
 import com.roozbeh.toopan.databinding.ActivityEditInfoUserBinding
 import com.roozbeh.toopan.interfaces.VolleyInterface
 import com.roozbeh.toopan.modelApi.*
-import com.roozbeh.toopan.utility.Constants
-import com.roozbeh.toopan.utility.PermissionHandler
-import com.roozbeh.toopan.utility.UiHandler
-import com.roozbeh.toopan.utility.Utils
+import com.roozbeh.toopan.utility.*
 import java.io.File
 import java.io.IOException
 
@@ -50,8 +48,10 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private var cityId = 0
     private var genderId = 0
     private var imageData: ByteArray? = null
-//    var cameraPhotoFilePath: Uri? = null
-    private var permissionHandler : PermissionHandler? = null
+    private var nameFile: String? = null
+
+    //    var cameraPhotoFilePath: Uri? = null
+    private var permissionHandler: PermissionHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,8 +71,9 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 checkNetForCity()
             } else {
                 UiHandler.keyboardDown(binding.autoTextCity, this)
-                Utils.showSnackBar(binding.btnSaveInfo, getString(R.string.selectState))
+                Utils.showSnackBar(this, binding.btnSaveInfo, getString(R.string.selectState), getColor(R.color.snackBar))
             }
+
         }
 
         binding.toolbarEditProfile.setNavigationOnClickListener {
@@ -94,7 +95,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             if (it) {
                 requestServer()
             } else {
-                Utils.showSnackBar(binding.btnSaveInfo, getString(R.string.noInternet))
+                Utils.showSnackBar(this, binding.btnSaveInfo, getString(R.string.noInternet), getColor(R.color.snackBar))
             }
         }
     }
@@ -115,7 +116,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                     binding.pageWhiteEditProfile.visibility = View.GONE
                     if (error != null) {
                         error.message?.let {
-                            Utils.showSnackBar(binding.btnSaveInfo, it)
+                            Utils.showSnackBar(applicationContext, binding.btnSaveInfo, it, getColor(R.color.snackBar))
                         }
                     }
 
@@ -133,16 +134,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         VolleyGetGender.getGender(object : VolleyInterface<ListGender> {
             override fun onSuccess(genders: ListGender) {
                 setGender(genders)
-                for ((index, value) in genders.withIndex()) {
-                    if (genderId == value.id)
-                        binding.autoTextGender.setText(genders[genderId].type)
-                }
             }
 
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(binding.btnSaveInfo, it)
+                        Utils.showSnackBar(applicationContext, binding.btnSaveInfo, it, getColor(R.color.snackBar))
                     }
                 }
             }
@@ -165,6 +162,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         binding.autoTextState.setText(user.city?.state!!.name)
         stateId = user.city?.state!!.id!!
         genderId = user.gender!!
+
         binding.autoTextCity.setText(user.city?.name)
     }
 
@@ -188,7 +186,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(binding.btnSaveInfo, it)
+                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
                     }
                 }
             }
@@ -246,7 +244,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(binding.btnSaveInfo, it)
+                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
                     }
                 }
             }
@@ -291,12 +289,18 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         for (i in gender.indices step 1) {
             states.add(gender[i].type)
         }
-
         val adapter = ArrayAdapter(
             this,
             android.R.layout.select_dialog_item, states
         )
 
+
+        for ((index, value) in gender.withIndex()) {
+            if (value.id != 0) {
+                if (genderId == value.id)
+                    binding.autoTextGender.setText(states[genderId - 1])
+            }
+        }
         binding.autoTextGender.setAdapter(adapter)
 //        binding.autoTextGender.postDelayed(Runnable {
 ////            binding.autoTextState.setText("PREM")
@@ -331,16 +335,15 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         NetDetector.check {
             if (it) {
-                Log.e("rrr", "sendEditInfo: "  +imageData )
                 if (imageData != null) {
                     sendImageProfile()
-                }else{
+                } else {
                     sendEditInfoRequest()
                 }
             } else {
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE
-                Utils.showSnackBar(binding.btnSaveInfo, getString(R.string.noInternet))
+                Utils.showSnackBar(applicationContext,binding.btnSaveInfo, getString(R.string.noInternet), getColor(R.color.snackBar))
             }
         }
 
@@ -354,7 +357,10 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 setContent(body)
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE
+                ConnectionModel.getInstance().isUpdateUser = true
+                ConnectionViewModel.getInstance().updateUser.postValue(ConnectionModel.getInstance().isUpdateUser)
 
+                Utils.showSnackBar(applicationContext,binding.btnSaveInfo, getString(R.string.updateIsSuccessfully), getColor(R.color.green))
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -362,7 +368,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 binding.btnLoadingProfile.visibility = View.GONE
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(binding.btnSaveInfo, it)
+                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
                     }
                 }
             }
@@ -370,19 +376,6 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         }, this, user, getUpdateProfileTag)
     }
 
-
-    //onClick
-    override fun onClick(p0: View?) {
-
-        when (p0!!.id) {
-            binding.pageWhiteEditProfile.id -> {}
-            binding.btnSaveInfo.id -> {
-                sendEditInfo()
-            }
-
-            binding.imgChangeProfile.id -> popupSelectType()
-        }
-    }
 
     private fun popupSelectType() {
 
@@ -427,11 +420,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 someActivityResultLauncherForGallery.launch(intent)
             }
             .setPositiveButton(resources.getString(R.string.camera)) { dialog, which ->
-                if (permissionHandler!!.isCameraPermissionGranted(this)){
+                if (permissionHandler!!.isCameraPermissionGranted(this)) {
                     takePhoto()
-                }else{
+                } else {
                     permissionHandler!!.requestPermission(Manifest.permission.CAMERA)
-                    permissionHandler!!.setPermissionGranted(object :PermissionHandler.PermissionGranted{
+                    permissionHandler!!.setPermissionGranted(object :
+                        PermissionHandler.PermissionGranted {
                         override fun onPermissionGranted() {
 
                             takePhoto()
@@ -451,7 +445,11 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         takePicture.putExtra("android.intent.extras.CAMERA_FACING", 1)
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
 
-        val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyPhoto.jpg")
+        val file = FileManager.generateFileName(
+            "MyPhoto",
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).path
+        )
+        nameFile = file.name
         val uri = FileProvider.getUriForFile(
             this,
             this.applicationContext.packageName + ".provider",
@@ -468,7 +466,6 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         if (result.resultCode == RESULT_OK && result.data != null) {
             val data = result.data!!
             val path = data.data!!
-
             createImageData(path)
         }
     }
@@ -479,7 +476,10 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     ) { result ->
         if (result.resultCode == RESULT_OK /*&& result.data != null*/) {
 
-            val file = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "MyPhoto.jpg")
+            val file = File(
+                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                nameFile
+            )
             val uri = FileProvider.getUriForFile(
                 this,
                 this.applicationContext.packageName + ".provider",
@@ -489,35 +489,66 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         }
     }
+
     @Throws(IOException::class)
     private fun createImageData(uri: Uri) {
+        binding.imgProfileEdit.setImageURI(uri)
         val inputStream = contentResolver.openInputStream(uri)
         inputStream?.buffered()?.use {
             imageData = it.readBytes()
         }
     }
 
-    private fun sendImageProfile(){
+    private fun sendImageProfile() {
 
-        VolleySendImageEditProfile.sendImage(object : VolleyInterface<User>{
-            override fun onSuccess(body: User) {
-                sendEditInfoRequest()
+        VolleySendImageEditProfile.sendImage(
+            object : VolleyInterface<User> {
+                override fun onSuccess(body: User) {
+                    sendEditInfoRequest()
 
-            }
+                }
 
-            override fun onFailed(error: VolleyError?) {
+                override fun onFailed(error: VolleyError?) {
 
-                binding.btnSaveInfo.isEnabled = true
-                binding.btnLoadingProfile.visibility = View.GONE
-                if (error != null) {
-                    error.message?.let {
-                        Utils.showSnackBar(binding.btnSaveInfo, it)
+                    binding.btnSaveInfo.isEnabled = true
+                    binding.btnLoadingProfile.visibility = View.GONE
+                    if (error != null) {
+                        error.message?.let {
+                            Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                        }
                     }
                 }
-            }
 
-        }, this, MyApplication.preferences(this).getInt(Constants.ID_KEY, -1), imageData?: return, getUploadProfileTag)
+            },
+            this,
+            MyApplication.preferences(this).getInt(Constants.ID_KEY, -1),
+            imageData ?: return,
+            getUploadProfileTag
+        )
     }
 
+
+    //onClick
+    override fun onClick(p0: View?) {
+
+        when (p0!!.id) {
+            binding.pageWhiteEditProfile.id -> {}
+            binding.btnSaveInfo.id -> {
+                sendEditInfo()
+            }
+
+            binding.imgChangeProfile.id -> popupSelectType()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getUserTag)
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getGenderTag)
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getStateTag)
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getCityTag)
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getUpdateProfileTag)
+        VolleyController.INSTANCE.getRequestQueue(this).cancelAll(getUploadProfileTag)
+    }
 
 }

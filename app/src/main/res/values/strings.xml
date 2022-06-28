@@ -17,6 +17,8 @@
     <string name="about_as">ارتباط با ما</string>
     <string name="exit_account">خروج از حساب کاربری</string>
     <string name="noInternet">عدم دسترسی به اینترنت.</string>
+    <string name="Image">Image</string>
+    <string name="updateIsSuccessfully">ٍثبت اطلاعات با موفقیت انجام شد</string>
 
 
     // body server
