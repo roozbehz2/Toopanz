@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".acrivites.SplashActivity">
+
+        <ImageView
+            android:id="@+id/imgSplash"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent=".6"
+            android:src="@drawable/splash"
+            app:layout_constraintBottom_toTopOf="@id/txtWelcomeSplash"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/txtWelcomeSplash"
+            style="@style/textTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="dededde"
+            app:autoSizeMaxTextSize="@dimen/_16ssp"
+            app:autoSizeMinTextSize="@dimen/_3ssp"
+            app:autoSizeTextType="uniform"
+            android:gravity="bottom|center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgSplash" />
+
+        <TextView
+            android:id="@+id/txtDesSplash"
+            style="@style/textDes"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/longText"
+            android:textColor="@color/grey1"
+            app:autoSizeMaxTextSize="@dimen/_10ssp"
+            app:autoSizeMinTextSize="@dimen/_3ssp"
+            app:autoSizeTextType="uniform"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtWelcomeSplash"
+            app:layout_constraintWidth_percent=".7" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constLoginSplash"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0"
+            android:background="@drawable/border_orange_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".06"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtDesSplash"
+            app:layout_constraintVertical_bias="0.15"
+            app:layout_constraintWidth_percent=".4">
+
+
+            <TextView
+                style="@style/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/loginInApp"
+                android:textColor="@color/orange"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".acrivites.EditInfoUserActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorEdit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/btnSaveInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarEditProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbarEditProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    android:layoutDirection="rtl"
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:navigationIcon="@drawable/ic_arrow_right"
+                    app:title="@string/edit_info_user"
+                    app:titleTextColor="@color/blackToopan" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedEditInfoUser"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarEditProfile">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvProfileEdit"
+                        android:layout_width="@dimen/_75sdp"
+                        android:layout_height="@dimen/_75sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_50sdp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imgProfileEdit"
+                            android:layout_width="@dimen/_75sdp"
+                            android:layout_height="@dimen/_75sdp"
+                            android:scaleType="centerCrop" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/imgChangeProfile"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/circle_blue"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_edit_white"
+                        app:layout_constraintBottom_toBottomOf="@id/cvProfileEdit"
+                        app:layout_constraintStart_toStartOf="@id/cvProfileEdit" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutUsernameEditProfile"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:hint="@string/name_lastname"
+                        android:textColorHint="@color/grey2"
+                        app:boxStrokeColor="@color/orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cvProfileEdit"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etUsernameEditProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutPhoneEditProfile"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/phone_number"
+                        android:textColorHint="@color/grey2"
+                        app:boxStrokeColor="@color/orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutUsernameEditProfile"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPhoneEditProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutNationalCodeEditProfile"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/NationalCode"
+                        android:textColorHint="@color/grey2"
+                        app:boxStrokeColor="@color/orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutPhoneEditProfile"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNationalCodeEditProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerState"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/State"
+                        app:layout_constraintEnd_toEndOf="@id/txtInputLayoutNationalCodeEditProfile"
+                        app:layout_constraintStart_toEndOf="@id/spinnerCity"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutNationalCodeEditProfile">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextState"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerCity"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:hint="@string/city"
+                        app:layout_constraintEnd_toStartOf="@id/spinnerState"
+                        app:layout_constraintStart_toStartOf="@id/txtInputLayoutNationalCodeEditProfile"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutNationalCodeEditProfile">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerSex"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_45sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:hint="@string/sex"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/spinnerState"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/txtInfoAccount"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center|start"
+                        android:text="@string/info_account"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerSex"
+                        app:layout_constraintWidth_percent=".9" />
+
+                    <TextView
+                        android:id="@+id/txtInfoAccountDes"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:gravity="start"
+                        android:text="@string/info_account_des"
+                        android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtInfoAccount"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutAccountNumberEditProfile"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/account_number"
+                        android:textColorHint="@color/grey2"
+                        app:boxStrokeColor="@color/orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInfoAccountDes"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAccountNumberEditProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <TextView
+                        android:id="@+id/txtInfoAccountNumberEditProfile"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:gravity="start"
+                        android:text="@string/info_account_number"
+                        android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_9ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutAccountNumberEditProfile"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutCardNumberEditProfile"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/card_number"
+                        android:textColorHint="@color/grey2"
+                        app:boxStrokeColor="@color/orange"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInfoAccountNumberEditProfile"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCardNumberEditProfile"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionDone"
+                            android:inputType="number"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_20sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutCardNumberEditProfile" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <Button
+            android:id="@+id/btnSaveInfo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_shape_blue"
+            android:text="@string/saveInfo"
+            android:textColor="@color/white"
+            android:theme="@style/roundedCornerMaterialButtonBlue"
+            app:autoSizeMaxTextSize="@dimen/_12ssp"
+            app:autoSizeMinTextSize="@dimen/_3ssp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/btnLoadingProfile"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSaveInfo"
+            app:layout_constraintEnd_toEndOf="@+id/btnSaveInfo"
+            app:layout_constraintStart_toStartOf="@+id/btnSaveInfo"
+            app:layout_constraintTop_toTopOf="@+id/btnSaveInfo"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+
+        <View
+            android:id="@+id/pageWhiteEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/refreshEditProfile"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

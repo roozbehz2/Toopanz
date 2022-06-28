@@ -1,0 +1,131 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Toopan" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorAccent">@color/orange</item>
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!--To disable dark mode-->
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="textTitle">
+        <item name="android:fontFamily">@font/estedad_regular</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="textDes">
+        <item name="android:fontFamily">@font/estedad_regular</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="TextAppearance.AppTheme.TextInputLayout.HintTextAlt" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">@color/grey2</item>
+    </style>
+
+    <style name="Widget.AppTheme.TextInputLayoutList" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.AppTheme.TextInputLayout.HintTextAlt
+        </item>
+        <item name="boxStrokeColor">@color/orange</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="colorContainer">@color/orange</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_4sdp</item>
+    </style>
+
+    <style name="Widget.AppTheme.AutoCompleteTextView" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="hintTextAppearance">@style/TextAppearance.AppTheme.TextInputLayout.HintTextAlt
+        </item>
+        <item name="boxStrokeColor">@color/orange</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="colorContainer">@color/orange</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/_4sdp</item>
+        <item name="boxCornerRadiusTopStart">@dimen/_4sdp</item>
+    </style>
+
+
+    <style name="AppTheme.RoundedCornerMaterialButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:background">@drawable/rounded_shape</item>
+        <item name="colorPrimary">@color/orange</item>
+        <item name="android:fontFamily">@font/estedad_regular</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="roundedCornerMaterialButtonBlue"  parent="Widget.AppCompat.Button.Colored">
+        <item name="colorPrimary">@color/blue</item>
+        <item name="android:fontFamily">@font/estedad_regular</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="android:fontFamily">@font/estedad_regular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+
+
+    <style name="MyTitle_ThemeOverlay.MaterialComponents.MaterialAlertDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">@style/MyTitle_MaterialAlertDialog.MaterialComponents.Title.Text</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MyTitle_TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="buttonBarNegativeButtonStyle">@style/MyTitle_TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="buttonBarNeutralButtonStyle">@style/MyTitle_TextAppearance.MaterialComponents.Subtitle3</item>
+    </style>
+    <style name="MyTitle_MaterialAlertDialog.MaterialComponents.Title.Text" parent="@style/MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textAppearance">@style/MyTitle_TextAppearance.MaterialComponents.Subtitle1</item>
+    </style>
+    <style name="MyTitle_TextAppearance.MaterialComponents.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/estedad_regular</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+    </style>
+    <style name="MyTitle_TextAppearance.MaterialComponents.Subtitle2" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="fontFamily">@font/estedad_regular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/orange</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+    <style name="MyTitle_TextAppearance.MaterialComponents.Subtitle3" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/estedad_regular</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:letterSpacing">.12</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">@dimen/_4sdp</item>
+        <item name="android:textColor">@color/blackToopan</item>
+        <item name="android:background">@color/transparent</item>
+
+    </style>
+
+</resources>

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Toopan</string>
+    <string name="loginInApp">ورود به برنامه</string>
+    <string name="saveInfo">ثبت اطلاعات</string>
+    <string name="login_des">نام کاربری و رمز عبور شما از طریق تیم پشتیبانی در اختیار شما قبلا قرار گرفته است.</string>
+    <string name="userName">نام کاربری</string>
+    <string name="password">رمز عبور</string>
+    <string name="todo">todo</string>
+    <string name="about">تماس با پشتیبانی</string>
+    <string name="longText">لورم ایپسوم متنی نامفهوم در صنعت چاپ و گرافیک هست که طراحان از آن استفاده میکنند</string>
+    <string name="profile">پروفایل</string>
+    <string name="notification">اعلانات</string>
+    <string name="tournament">مسابقات</string>
+    <string name="salons">سالن ها</string>
+    <string name="edit_info_user">ویرایش اطلاعات کاربری</string>
+    <string name="transaction">تراکنش های مالی</string>
+    <string name="about_as">ارتباط با ما</string>
+    <string name="exit_account">خروج از حساب کاربری</string>
+    <string name="noInternet">عدم دسترسی به اینترنت.</string>
+
+
+    // body server
+    <string name="username">username</string>
+    <string name="passwordServer">password</string>
+    <string name="name_lastname">نام و نام خانوادگی</string>
+    <string name="phone_number">شماره تلفن</string>
+    <string name="NationalCode">کد ملی</string>
+    <string name="State">استان</string>
+    <string name="city">شهرستان</string>
+    <string name="sex">جنسیت</string>
+    <string name="info_account">اطلاعات حساب</string>
+    <string name="info_account_des">این اطلاعات برای پرداخت مبلغ سانس های رزرو شده لازم است و بصورت محرمانه و فقط در اختیار اپلیکیشن توپان قرار دارد.</string>
+    <string name="info_account_number">شماره حساب را با خط تیره وارد کنید. به عنوان مثال: ‌۵۸۰‍۱-۴۳۲۴۵۳۴-۱</string>
+    <string name="account_number">شماره حساب</string>
+    <string name="card_number">شماره کارت</string>
+    <string name="selectState">استان را انتخاب کنید</string>
+    <string name="permissionTittleDialog">برای این کار به دسترسی نیاز داریم</string>
+    <string name="setting">تنظیمات</string>
+    <string name="cancel">لغو</string>
+    <string name="GalleryOrCamera">انتخاب مسیر</string>
+    <string name="gallery">گالری</string>
+    <string name="camera">دوربین</string>
+
+</resources>

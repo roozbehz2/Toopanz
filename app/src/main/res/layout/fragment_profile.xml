@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorAppbar"
+        tools:context=".fragment.ProfileFragment">
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/blur_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constParentProfile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/txtProfile"
+                style="@style/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:text="@string/profile"
+                android:textColor="@color/blackToopan"
+                app:autoSizeMaxTextSize="@dimen/_14ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@id/cvProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_weight=".1" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvProfile"
+                android:layout_width="@dimen/_75sdp"
+                android:layout_height="@dimen/_75sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_gravity="center"
+                app:cardCornerRadius="@dimen/_50sdp"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtNameUser"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtProfile">
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="@dimen/_75sdp"
+                    android:background="@color/blue"
+                    android:scaleType="centerCrop" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtNameUser"
+                style="@style/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="bottom|center"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="روزبه زمانی"
+                android:textColor="@color/blackToopan"
+                app:autoSizeMaxTextSize="@dimen/_14ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@id/txtPhoneUser"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvProfile"
+                app:layout_constraintVertical_weight=".07" />
+
+            <TextView
+                android:id="@+id/txtPhoneUser"
+                style="@style/textTitle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center|top"
+                android:text="09361101775"
+                android:textColor="@color/grey1"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtNameUser"
+                app:layout_constraintVertical_weight=".1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constParentProfile">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constParentEditTransactionProfile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/border_white"
+                app:layout_constraintBottom_toTopOf="@id/constEAboutExitProfile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".9">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constEditProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:foreground="@drawable/ripple_null"
+                    app:layout_constraintBottom_toTopOf="@id/line1Profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/imgEditProfile"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/border_icon_profile"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/ic_edit"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtEditProfile"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="start|center"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:text="@string/edit_info_user"
+                        android:textColor="@color/blackToopan"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imgEditProfile"
+                        app:layout_constraintStart_toEndOf="@id/imgEditArrowProfile"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgEditArrowProfile"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/txtEditProfile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/line1Profile"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blueGrey"
+                    app:layout_constraintBottom_toTopOf="@id/constTransactionProfile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/constEditProfile"
+                    app:layout_constraintWidth_percent=".8" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constTransactionProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:foreground="@drawable/ripple_null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line1Profile">
+
+                    <ImageView
+                        android:id="@+id/imgTransactionProfile"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/border_icon_profile"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/ic_wallet"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtTransactionProfile"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="start|center"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:text="@string/transaction"
+                        android:textColor="@color/blackToopan"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imgTransactionProfile"
+                        app:layout_constraintStart_toEndOf="@id/imgTransactionArrowProfile"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgTransactionArrowProfile"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/txtTransactionProfile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constEAboutExitProfile"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/border_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constParentEditTransactionProfile"
+                app:layout_constraintWidth_percent=".9">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constAboutProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:foreground="@drawable/ripple_null"
+                    app:layout_constraintBottom_toTopOf="@id/line2Profile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/imgAboutProfile"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/border_icon_profile"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/ic_call"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtAboutProfile"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="start|center"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:text="@string/about_as"
+                        android:textColor="@color/blackToopan"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imgAboutProfile"
+                        app:layout_constraintStart_toEndOf="@id/imgAboutArrowProfile"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgAboutArrowProfile"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/txtAboutProfile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/line2Profile"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:background="@color/blueGrey"
+                    app:layout_constraintBottom_toTopOf="@id/constAboutProfile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/constExitProfile"
+                    app:layout_constraintWidth_percent=".8" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constExitProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:foreground="@drawable/ripple_null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/line2Profile">
+
+
+                    <ImageView
+                        android:id="@+id/imgExitProfile"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
+                        android:background="@drawable/border_icon_profile"
+                        android:padding="@dimen/_7sdp"
+                        android:src="@drawable/ic_logout"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtExitProfile"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="start|center"
+                        android:paddingEnd="@dimen/_10sdp"
+                        android:text="@string/exit_account"
+                        android:textColor="@color/red"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/imgExitProfile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
