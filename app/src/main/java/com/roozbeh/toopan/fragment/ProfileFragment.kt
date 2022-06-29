@@ -27,20 +27,13 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentProfileBinding
     private var getUserTag: String? = "getUserProfileTag"
-    private var user: User? = null
-
-    companion object {
-        fun newInstance() = ProfileFragment()
-    }
-
-    private lateinit var viewModel: ProfileViewModel
+    private var user: User = User()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentProfileBinding.inflate(layoutInflater)
-        Log.e("rrr", "onCreateView: ")
         return binding.root
     }
 
@@ -50,6 +43,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
         binding.constTransactionProfile.setOnClickListener(this)
         binding.constAboutProfile.setOnClickListener(this)
         binding.constExitProfile.setOnClickListener(this)
+        binding.imgProfile.setOnClickListener(this)
 
 
     }
@@ -63,9 +57,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
         NetDetector.check {
             if (it) {
-                if (ConnectionModel.getInstance().isUpdateUser) {
-                    ConnectionModel.getInstance().isUpdateUser = false
-                    ConnectionViewModel.getInstance().updateUser.postValue(ConnectionModel.getInstance().isUpdateUser)
+                if (ConnectionModel.instance.isUpdateUser) {
+                    ConnectionModel.instance.isUpdateUser = false
+                    ConnectionViewModel.instance.updateUser.postValue(ConnectionModel.instance.isUpdateUser)
                     requestServer()
                 } else {
                     if (user != null) {
@@ -76,6 +70,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
                 }
             } else {
+                if (user != null) {
+                    setContent(user!!)
+                }
                 Utils.showSnackBar(
                     requireContext(),
                     binding.cvProfile,
@@ -141,10 +138,9 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0!!.id) {
-            binding.constEditProfile.id -> {
-                transactionEdit()
-
-            }
+            binding.constEditProfile.id -> transactionEdit()
+            binding.imgProfile.id->
+                Utils.openImageViewer(requireContext(), binding.imgProfile, Constants.BASE_URL + user.profileImageUrl)
         }
     }
 

@@ -1,24 +1,11 @@
-package com.roozbeh.toopan.utility;
+package com.roozbeh.toopan.utility
 
-public class ConnectionModel {
+import com.roozbeh.toopan.utility.ConnectionModel
 
-    private static final ConnectionModel connectionModel = new ConnectionModel();
+class ConnectionModel private constructor() {
+    var isUpdateUser = true
 
-    public static ConnectionModel getInstance() {
-        return connectionModel;
+    companion object {
+        val instance = ConnectionModel()
     }
-
-    private ConnectionModel() {
-    }
-
-    private boolean updateUser = true;
-
-    public boolean isUpdateUser() {
-        return updateUser;
-    }
-
-    public void setUpdateUser(boolean updateUser) {
-        this.updateUser = updateUser;
-    }
-
 }

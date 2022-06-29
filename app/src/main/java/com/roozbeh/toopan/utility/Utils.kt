@@ -1,13 +1,17 @@
 package com.roozbeh.toopan.utility
 
+import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Color
-import android.graphics.fonts.Font
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.roozbeh.toopan.R
 import com.roozbeh.toopan.app.MyApplication
+import com.stfalcon.imageviewer.StfalconImageViewer
+import java.io.File
 
 
 object Utils {
@@ -44,5 +48,29 @@ object Utils {
         textView.typeface = context.resources.getFont(R.font.estedad_regular)
         textView.textSize = context.resources.getDimension(com.intuit.ssp.R.dimen._5ssp)
         snackbar.show()
+    }
+
+
+    fun openImageViewer(context: Context, targetImageView: ImageView, imageUrl: String) {
+        val images = ArrayList<String>()
+        images.add(imageUrl) //your img url here
+
+        StfalconImageViewer.Builder(
+            context, images
+        ) { imageView, image -> Glide.with(context).load(image).into(imageView) }
+            .withTransitionFrom(targetImageView)
+            .show()
+    }
+
+
+    @JvmStatic
+    fun reset() {
+//        val appMainFolder = Constants.BASE_FOLDER
+//        if (File(appMainFolder).exists()) {
+//            val deleted: Boolean = FileManager.deleteFile(File(appMainFolder))
+//            if (deleted) (getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
+//        } else {
+            (MyApplication.getContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
+//        }
     }
 }

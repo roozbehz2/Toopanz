@@ -32,6 +32,7 @@ object Constants {
     const val GET_GENDER = "/user/get-sex"
     const val POST_UPDATE_PROFILE = "/user/update-profile"
     const val POST_UPLOAD_PROFILE = "/user/upload-profile/"
+    const val POST_REFRESH_TOKEN = "/user/refresh-token"
 
 
     //Folders

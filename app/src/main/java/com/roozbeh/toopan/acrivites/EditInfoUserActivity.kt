@@ -60,6 +60,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnSaveInfo.setOnClickListener(this)
         binding.pageWhiteEditProfile.setOnClickListener(this)
         binding.imgChangeProfile.setOnClickListener(this)
+        binding.imgProfileEdit.setOnClickListener(this)
 
         checkNet()
         binding.autoTextState.setOnClickListener {
@@ -71,7 +72,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 checkNetForCity()
             } else {
                 UiHandler.keyboardDown(binding.autoTextCity, this)
-                Utils.showSnackBar(this, binding.btnSaveInfo, getString(R.string.selectState), getColor(R.color.snackBar))
+                Utils.showSnackBar(
+                    this,
+                    binding.btnSaveInfo,
+                    getString(R.string.selectState),
+                    getColor(R.color.snackBar)
+                )
             }
 
         }
@@ -95,7 +101,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             if (it) {
                 requestServer()
             } else {
-                Utils.showSnackBar(this, binding.btnSaveInfo, getString(R.string.noInternet), getColor(R.color.snackBar))
+                Utils.showSnackBar(
+                    this,
+                    binding.btnSaveInfo,
+                    getString(R.string.noInternet),
+                    getColor(R.color.snackBar)
+                )
             }
         }
     }
@@ -116,7 +127,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                     binding.pageWhiteEditProfile.visibility = View.GONE
                     if (error != null) {
                         error.message?.let {
-                            Utils.showSnackBar(applicationContext, binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                            Utils.showSnackBar(
+                                applicationContext,
+                                binding.btnSaveInfo,
+                                it,
+                                getColor(R.color.snackBar)
+                            )
                         }
                     }
 
@@ -139,7 +155,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(applicationContext, binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                        Utils.showSnackBar(
+                            applicationContext,
+                            binding.btnSaveInfo,
+                            it,
+                            getColor(R.color.snackBar)
+                        )
                     }
                 }
             }
@@ -148,7 +169,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setContent(user: User) {
-
+        this.user = user
 //        binding.imgProfileEdit.setImageResource(R.drawable.ic_profile)
         Glide.with(this)
             .load(Constants.BASE_URL + user.profileImageUrl)
@@ -186,7 +207,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                        Utils.showSnackBar(
+                            applicationContext,
+                            binding.btnSaveInfo,
+                            it,
+                            getColor(R.color.snackBar)
+                        )
                     }
                 }
             }
@@ -244,7 +270,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             override fun onFailed(error: VolleyError?) {
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                        Utils.showSnackBar(
+                            applicationContext,
+                            binding.btnSaveInfo,
+                            it,
+                            getColor(R.color.snackBar)
+                        )
                     }
                 }
             }
@@ -343,7 +374,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE
-                Utils.showSnackBar(applicationContext,binding.btnSaveInfo, getString(R.string.noInternet), getColor(R.color.snackBar))
+                Utils.showSnackBar(
+                    applicationContext,
+                    binding.btnSaveInfo,
+                    getString(R.string.noInternet),
+                    getColor(R.color.snackBar)
+                )
             }
         }
 
@@ -357,10 +393,15 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 setContent(body)
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE
-                ConnectionModel.getInstance().isUpdateUser = true
-                ConnectionViewModel.getInstance().updateUser.postValue(ConnectionModel.getInstance().isUpdateUser)
+                ConnectionModel.instance.isUpdateUser = true
+                ConnectionViewModel.instance.updateUser.postValue(ConnectionModel.instance.isUpdateUser)
 
-                Utils.showSnackBar(applicationContext,binding.btnSaveInfo, getString(R.string.updateIsSuccessfully), getColor(R.color.green))
+                Utils.showSnackBar(
+                    applicationContext,
+                    binding.btnSaveInfo,
+                    getString(R.string.updateIsSuccessfully),
+                    getColor(R.color.green)
+                )
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -368,7 +409,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 binding.btnLoadingProfile.visibility = View.GONE
                 if (error != null) {
                     error.message?.let {
-                        Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                        Utils.showSnackBar(
+                            applicationContext,
+                            binding.btnSaveInfo,
+                            it,
+                            getColor(R.color.snackBar)
+                        )
                     }
                 }
             }
@@ -514,7 +560,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                     binding.btnLoadingProfile.visibility = View.GONE
                     if (error != null) {
                         error.message?.let {
-                            Utils.showSnackBar(applicationContext,binding.btnSaveInfo, it, getColor(R.color.snackBar))
+                            Utils.showSnackBar(
+                                applicationContext,
+                                binding.btnSaveInfo,
+                                it,
+                                getColor(R.color.snackBar)
+                            )
                         }
                     }
                 }
@@ -536,8 +587,15 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
             binding.btnSaveInfo.id -> {
                 sendEditInfo()
             }
-
             binding.imgChangeProfile.id -> popupSelectType()
+            binding.imgProfileEdit.id -> {
+                Log.e("rrr", "onClick: " + user.profileImageUrl)
+                Utils.openImageViewer(
+                    this,
+                    binding.imgProfileEdit,
+                    Constants.BASE_URL + user.profileImageUrl
+                )
+            }
         }
     }
 

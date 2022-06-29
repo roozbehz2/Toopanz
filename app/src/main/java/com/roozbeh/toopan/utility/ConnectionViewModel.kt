@@ -1,31 +1,15 @@
-package com.roozbeh.toopan.utility;
+package com.roozbeh.toopan.utility
 
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.MutableLiveData
+import com.roozbeh.toopan.utility.ConnectionModel
+import com.roozbeh.toopan.utility.ConnectionViewModel
 
+class ConnectionViewModel private constructor() : ViewModel() {
+    private val mutableLiveData = MutableLiveData<ConnectionModel>()
+    val updateUser = MutableLiveData<Boolean>()
 
-
-public class ConnectionViewModel extends ViewModel {
-
-    private final MutableLiveData<ConnectionModel> mutableLiveData = new MutableLiveData<ConnectionModel>();
-
-    private static final ConnectionViewModel connectionViewModel = new ConnectionViewModel();
-
-    private ConnectionViewModel() {
+    companion object {
+        val instance = ConnectionViewModel()
     }
-
-    public static ConnectionViewModel getInstance() {
-        return connectionViewModel;
-    }
-
-
-
-
-    private final MutableLiveData<Boolean> booleanMutableLiveData = new MutableLiveData<>();
-    public MutableLiveData<Boolean> getUpdateUser() {
-        return booleanMutableLiveData;
-    }
-
-
-
 }

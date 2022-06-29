@@ -23,10 +23,5 @@ class SalonsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_salons, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SalonsViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
