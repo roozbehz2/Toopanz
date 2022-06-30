@@ -1,6 +1,7 @@
 package com.roozbeh.toopan.communication.volleyPackage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import com.roozbeh.toopan.R;
+import com.roozbeh.toopan.acrivites.SplashActivity;
 import com.roozbeh.toopan.app.MyApplication;
 import com.roozbeh.toopan.communication.volleyRequest.VolleyRefreshToken;
 import com.roozbeh.toopan.interfaces.VolleyInterface;
@@ -141,7 +144,7 @@ public class AuthRequest<T> extends Request<T> {
                     if (errorResponse.getString("errorCode").equals("411")) {
                         JsonObject jsonObject = new JsonObject();
                         jsonObject.addProperty("refToken",
-                                MyApplication.Companion.preferences(context).getString(Constants.REFRESH_TOKEN_KEY, ""));
+                                MyApplication.Companion.preferences().getString(Constants.REFRESH_TOKEN_KEY, ""));
 //                        Log.e("rrr", "parseNetworkError:3 " + jsonObject);
 //todo cancel all request
 //                        VolleyController.INSTANCE.getRequestQueue(context)...
@@ -149,10 +152,10 @@ public class AuthRequest<T> extends Request<T> {
                         VolleyRefreshToken.Companion.getToken(new VolleyInterface<ResponseLogin>() {
                             @Override
                             public void onSuccess(ResponseLogin responseLogin) {
-                                MyApplication.Companion.preferences(context).edit().putString(
+                                MyApplication.Companion.preferences().edit().putString(
                                         Constants.TOKEN_KEY, responseLogin.getToken()).apply();
 
-                                MyApplication.Companion.preferences(context).edit().putString(
+                                MyApplication.Companion.preferences().edit().putString(
                                         Constants.REFRESH_TOKEN_KEY, responseLogin.getRefToken()).apply();
 
                                 AuthRequest<T> authRequest = new AuthRequest<>(method, url, clazz, requestBody, requiresAuth,
@@ -170,16 +173,17 @@ public class AuthRequest<T> extends Request<T> {
                         }, context, jsonObject, "refreshTokenTag");
                         // 412 = expire refresh token
                     } else if (errorResponse.getString("errorCode").equals("412")) {
-                        Utils.reset();
+                        MyApplication.Companion.preferences().edit().clear().apply();
+                        Intent intent = new Intent(context, SplashActivity.class);
+                        context.startActivity(intent);
+//                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
                     }
 
                 } catch (JSONException e) {
                     Log.e("rrr", "parseNetworkError: " + " volley auth catch ");
                     e.printStackTrace();
                 }
-
-
-
 
 
                 /*VolleySignInTask.signIn(new SignInListener() {

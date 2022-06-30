@@ -19,11 +19,11 @@ open class MyApplication : Application() {
     }
 
     companion object{
-        private var pref: SharedPreferences? = null
         private var context: Context? = null
-        fun preferences(context :Context): SharedPreferences {
+        private var pref: SharedPreferences? = null
+        fun preferences(): SharedPreferences {
             if (pref == null) {
-                pref = context.getSharedPreferences(Constants.MY_SAVE_PREF, Context.MODE_PRIVATE)
+                pref = context!!.getSharedPreferences(Constants.MY_SAVE_PREF, Context.MODE_PRIVATE)
             }
             return pref!!
         }

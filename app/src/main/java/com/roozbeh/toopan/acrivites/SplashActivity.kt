@@ -35,7 +35,7 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         val text =
             "<font color=#2B3234>به </font> <font color=#FF5821>توپان </font> <font color=#2B3234>خوش امدید</font>"
         binding.txtWelcomeSplash.text = Html.fromHtml(text, 0)
-        if (MyApplication.preferences(applicationContext).getBoolean(Constants.LOGIN_KEY, false)) {
+        if (MyApplication.preferences().getBoolean(Constants.LOGIN_KEY, false)) {
             binding.constLoginSplash.isEnabled = false
 
             object : CountDownTimer(2000, 1000) {

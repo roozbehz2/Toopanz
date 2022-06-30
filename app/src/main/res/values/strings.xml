@@ -42,5 +42,10 @@
     <string name="GalleryOrCamera">انتخاب مسیر</string>
     <string name="gallery">گالری</string>
     <string name="camera">دوربین</string>
+    <string name="salonNoExist">شما هنوز سالنی ثبت نکرده اید</string>
+    <string name="desNoSalonExist">این قسمت مربوط به مدیریت سالن و سانس ها می باشد لطفا اولین سالن خود را ثبت کنید</string>
+    <string name="makeNewSalons">ثبت سالن جدید</string>
+    <string name="hintSearch">جستجو اسم سالن...</string>
+    <string name="addNewSalons">افزودن سالن جدید</string>
 
 </resources>

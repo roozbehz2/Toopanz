@@ -65,14 +65,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 override fun onSuccess(responseLogin: ResponseLogin) {
                     binding.refreshLogin.visibility = View.INVISIBLE
                     responseLogin.user.id?.let {
-                        MyApplication.preferences(applicationContext).edit().putInt(Constants.ID_KEY,
+                        MyApplication.preferences().edit().putInt(Constants.ID_KEY,
                             it
                         ).apply()
                     }
-                    MyApplication.preferences(applicationContext).edit().putString(Constants.TOKEN_KEY, responseLogin.token).apply()
-                    MyApplication.preferences(applicationContext).edit().putString(Constants.REFRESH_TOKEN_KEY, responseLogin.refToken)
+                    MyApplication.preferences().edit().putString(Constants.TOKEN_KEY, responseLogin.token).apply()
+                    MyApplication.preferences().edit().putString(Constants.REFRESH_TOKEN_KEY, responseLogin.refToken)
                         .apply()
-                    MyApplication.preferences(applicationContext).edit().putBoolean(Constants.LOGIN_KEY, true).apply()
+                    MyApplication.preferences().edit().putBoolean(Constants.LOGIN_KEY, true).apply()
 
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     startActivity(intent)

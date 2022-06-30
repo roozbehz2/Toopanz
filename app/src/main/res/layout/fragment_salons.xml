@@ -1,9 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.SalonsFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/blueGrey"
+        tools:context=".fragment.SalonsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constRecycler"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".9">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSearchSalons"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/border_white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!--<ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_search"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>-->
 
 
-</FrameLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etUsernameLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:backgroundTint="@color/transparent"
+                    android:drawableEnd="@drawable/ic_search"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:fontFamily="@font/estedad_regular"
+                    android:hint="@string/hintSearch"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:selectAllOnFocus="true"
+                    android:textDirection="rtl"
+                    android:textSize="@dimen/_12ssp"
+                    android:theme="@style/inputEditText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerSalonsList"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constSearchSalons" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabAddNewSalons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_40sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/textDes"
+                app:layout_behavior="com.eventizon.behavior.ScrollAwareFABBehavior"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/orange"
+                android:text="@string/addNewSalons"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constNullSalons"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent=".6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.26"
+                app:layout_constraintWidth_percent=".8">
+
+                <ImageView
+                    android:id="@+id/imgNullSalons"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:src="@drawable/ic_null_salons"
+                    app:layout_constraintBottom_toTopOf="@id/txtNoSalonExist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.56"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+                <TextView
+                    android:id="@+id/txtNoSalonExist"
+                    style="@style/textTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/salonNoExist"
+                    android:textColor="@color/blackToopan"
+                    app:autoSizeMaxTextSize="@dimen/_13ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/txtDEsNoSalonExist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imgNullSalons" />
+
+                <TextView
+                    android:id="@+id/txtDEsNoSalonExist"
+                    style="@style/textDes"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/desNoSalonExist"
+                    android:textColor="@color/grey1"
+                    app:autoSizeMaxTextSize="@dimen/_12ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toTopOf="@+id/constMakeNewSalon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtNoSalonExist" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constMakeNewSalon"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/border_blue_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".09"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtDEsNoSalonExist"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".5">
+
+
+                    <TextView
+                        style="@style/textDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/makeNewSalons"
+                        android:textColor="@color/blue"
+                        app:autoSizeMaxTextSize="@dimen/_13ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!-- todo-->
+        <!--<&lt;!&ndash;View
+            android:id="@+id/pageWhiteEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/refreshEditProfile"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />&ndash;&gt;-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

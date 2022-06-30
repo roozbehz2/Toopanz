@@ -63,14 +63,4 @@ object Utils {
     }
 
 
-    @JvmStatic
-    fun reset() {
-//        val appMainFolder = Constants.BASE_FOLDER
-//        if (File(appMainFolder).exists()) {
-//            val deleted: Boolean = FileManager.deleteFile(File(appMainFolder))
-//            if (deleted) (getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
-//        } else {
-            (MyApplication.getContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).clearApplicationUserData()
-//        }
-    }
 }

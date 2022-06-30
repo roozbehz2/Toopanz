@@ -1,15 +1,16 @@
 package com.roozbeh.toopan.fragment
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.roozbeh.toopan.R
+import androidx.fragment.app.Fragment
+import com.roozbeh.toopan.app.MyApplication.Companion.preferences
+import com.roozbeh.toopan.databinding.FragmentSalonsBinding
 
 class SalonsFragment : Fragment() {
 
+    private lateinit var binding: FragmentSalonsBinding
     companion object {
         fun newInstance() = SalonsFragment()
     }
@@ -20,8 +21,15 @@ class SalonsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_salons, container, false)
+        binding = FragmentSalonsBinding.inflate(layoutInflater)
+
+        return binding.root
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 
 }

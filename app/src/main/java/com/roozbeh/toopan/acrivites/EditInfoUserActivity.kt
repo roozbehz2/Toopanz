@@ -140,7 +140,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
             },
             this,
-            MyApplication.preferences(this).getInt(Constants.ID_KEY, -1),
+            MyApplication.preferences().getInt(Constants.ID_KEY, -1),
             getUserTag
         )
 
@@ -354,7 +354,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.btnSaveInfo.isEnabled = false
         binding.btnLoadingProfile.visibility = View.VISIBLE
-        user.id = MyApplication.preferences(this).getInt(Constants.ID_KEY, -1)
+        user.id = MyApplication.preferences().getInt(Constants.ID_KEY, -1)
         user.name = binding.etUsernameEditProfile.text.toString()
         user.phoneNumber = binding.etPhoneEditProfile.text.toString()
         user.nationCode = binding.etNationalCodeEditProfile.text.toString()
@@ -572,7 +572,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
             },
             this,
-            MyApplication.preferences(this).getInt(Constants.ID_KEY, -1),
+            MyApplication.preferences().getInt(Constants.ID_KEY, -1),
             imageData ?: return,
             getUploadProfileTag
         )

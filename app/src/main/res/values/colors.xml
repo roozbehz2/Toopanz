@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="whiteToopan">#FBFCFE</color>
 
 
 
@@ -25,6 +26,7 @@
     <color name="grey3">#838CA3</color>
     <color name="rippleWhite">#33A1A9BC</color>
     <color name="blue">#17ACFF</color>
+    <color name="blue2">#3317ACFF</color>
     <color name="blue3">#1E88E5</color>
     <color name="bright_sky_blue">#00d4f6</color>
     <color name="blueClick">#2698D9</color>

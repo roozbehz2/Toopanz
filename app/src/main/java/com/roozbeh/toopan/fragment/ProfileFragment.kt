@@ -108,7 +108,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
 
             },
             requireContext(),
-            MyApplication.preferences(requireContext()).getInt(Constants.ID_KEY, -1),
+            MyApplication.preferences().getInt(Constants.ID_KEY, -1),
             getUserTag
         )
 
