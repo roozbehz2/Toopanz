@@ -63,7 +63,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                     requestServer()
                 } else {
                     if (user != null) {
-                        setContent(user!!)
+                        setContent(user)
                     } else {
                         requestServer()
                     }
@@ -71,7 +71,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                 }
             } else {
                 if (user != null) {
-                    setContent(user!!)
+                    setContent(user)
                 }
                 Utils.showSnackBar(
                     requireContext(),

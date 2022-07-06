@@ -64,6 +64,7 @@ public class AuthRequest<T> extends Request<T> {
     private final Response.ErrorListener errorListener;
     private final boolean requiresAuth;
     private final String url;
+    private final Object params;
 
     /**
      * Make a POST/GET request and return a parsed object from JSON.
@@ -82,10 +83,11 @@ public class AuthRequest<T> extends Request<T> {
         this.method = method;
         this.errorListener = errorListener;
         this.requiresAuth = requiresAuth;
+        this.params = params;
+        Log.e("token", MyApplication.Companion.preferences().getString(Constants.TOKEN_KEY, ""));
         if (requiresAuth) {
             Map<String, String> authHeader = new HashMap<>();
-//            Log.e("looooog", AppUtils.getSignedInToken(mContext));
-            authHeader.put("Authorization", "Bearer " + Utils.getSignedInToken(context));
+            authHeader.put("Authorization", "Bearer " + MyApplication.Companion.preferences().getString(Constants.TOKEN_KEY, ""));
             this.headers = authHeader;
         } else {
             this.headers = null;
@@ -140,6 +142,7 @@ public class AuthRequest<T> extends Request<T> {
 
                 try {
                     JSONObject errorResponse = new JSONObject(new String(volleyError.networkResponse.data, StandardCharsets.UTF_8));
+                    Log.e("refresh", "parseNetworkError: " + errorResponse );
                     // 411 == expire token
                     if (errorResponse.getString("errorCode").equals("411")) {
                         JsonObject jsonObject = new JsonObject();
@@ -158,9 +161,8 @@ public class AuthRequest<T> extends Request<T> {
                                 MyApplication.Companion.preferences().edit().putString(
                                         Constants.REFRESH_TOKEN_KEY, responseLogin.getRefToken()).apply();
 
-                                AuthRequest<T> authRequest = new AuthRequest<>(method, url, clazz, requestBody, requiresAuth,
+                                AuthRequest<T> authRequest = new AuthRequest<>(method, url, clazz, params, requiresAuth,
                                         context, listener, errorListener);
-
                                 authRequest.setRetryPolicy(new DefaultRetryPolicy(10000, 1, 1.0F));
                                 VolleyController.INSTANCE.addToRequestQueue(context, authRequest, "oldRequest");
                             }
@@ -171,6 +173,7 @@ public class AuthRequest<T> extends Request<T> {
 //                                Log.e("rrr", "onFailed: " + error.networkResponse.statusCode);
                             }
                         }, context, jsonObject, "refreshTokenTag");
+
                         // 412 = expire refresh token
                     } else if (errorResponse.getString("errorCode").equals("412")) {
                         MyApplication.Companion.preferences().edit().clear().apply();

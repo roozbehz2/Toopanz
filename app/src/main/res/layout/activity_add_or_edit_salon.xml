@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".acrivites.AddOrEditSalonActivity">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorADSalon"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/btnSaveInfoADSalon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarADSalon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbarADSalon"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/white"
+                    android:layoutDirection="rtl"
+                    android:theme="@style/AppTheme.AppBarOverlay"
+                    app:layout_scrollFlags="scroll|enterAlways"
+                    app:navigationIcon="@drawable/ic_arrow_right"
+                    app:title="@string/addOrEditSalon"
+                    app:titleTextColor="@color/blackToopan" />
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedADSalon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarEditProfile">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvProfileADSalon"
+                        android:layout_width="@dimen/_75sdp"
+                        android:layout_height="@dimen/_75sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imgProfileADSalon"
+                            android:layout_width="@dimen/_75sdp"
+                            android:layout_height="@dimen/_75sdp"
+                            android:src="@drawable/ic_profile"
+                            android:scaleType="centerCrop" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:id="@+id/imgChangeProfileADSalon"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:background="@drawable/circle_blue"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_edit_white"
+                        app:layout_constraintBottom_toBottomOf="@id/cvProfileADSalon"
+                        app:layout_constraintEnd_toEndOf="@id/cvProfileADSalon"
+                        app:layout_constraintStart_toStartOf="@id/cvProfileADSalon"
+                        app:layout_constraintTop_toBottomOf="@id/cvProfileADSalon" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutNameSalonADSalon"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_25sdp"
+                        android:hint="@string/nameSalon"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cvProfileADSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNameSalonADSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutTypeInterfaceSalon"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/TypeInterfaceSalon"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutNameSalonADSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextTypeInterfaceSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutTypeOwnershipSalon"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/TypeOwnershipSalon"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutTypeInterfaceSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextTypeOwnershipSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerSex"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/sex"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutTypeOwnershipSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:id="@+id/line1ADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/blueGrey3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/spinnerSex"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <TextView
+                        android:id="@+id/txtAddressSalon"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="@string/addressSalon"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="@id/line1ADSalon"
+                        app:layout_constraintStart_toEndOf="@id/txtSelectOnMap"
+                        app:layout_constraintTop_toBottomOf="@+id/line1ADSalon" />
+
+                    <TextView
+                        android:id="@+id/txtSelectOnMap"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|end"
+                        android:text="@string/selectOnMap"
+                        android:textColor="@color/blue"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toStartOf="@id/txtAddressSalon"
+                        app:layout_constraintStart_toStartOf="@id/line1ADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/line1ADSalon" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerState"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/State"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="@id/txtInputLayoutTypeOwnershipSalon"
+                        app:layout_constraintStart_toEndOf="@id/spinnerCity"
+                        app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextState"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/spinnerCity"
+                        style="@style/Widget.AppTheme.AutoCompleteTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_4sdp"
+                        android:hint="@string/city"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toStartOf="@id/spinnerState"
+                        app:layout_constraintStart_toStartOf="@id/spinnerSex"
+                        app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/autoTextCity"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:inputType="text"
+                            android:selectAllOnFocus="true"
+                            android:textColor="@color/grey3"
+                            android:textDirection="rtl" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkboxSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="@string/noSalonInMyCity"
+                        android:textColor="@color/grey1"
+                        app:layout_constraintEnd_toEndOf="@id/spinnerSex"
+                        app:layout_constraintStart_toStartOf="@id/spinnerSex"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutAddressADSalon"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/exactAddress"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHeight_percent=".1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/checkboxSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAddressADSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:gravity="top"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <View
+                        android:id="@+id/line2ADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/blueGrey3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutAddressADSalon"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <TextView
+                        android:id="@+id/txtPossibilitiesSalon"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="@string/PossibilitiesSalon"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="@id/line2ADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/line2ADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/line2ADSalon" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerPossibilitiesSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@id/txtPossibilitiesSalon"
+                        app:layout_constraintStart_toStartOf="@id/txtPossibilitiesSalon"
+                        app:layout_constraintTop_toBottomOf="@id/txtPossibilitiesSalon" />
+
+
+                    <View
+                        android:id="@+id/line3ADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/blueGrey3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recyclerPossibilitiesSalon"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <TextView
+                        android:id="@+id/txtTamingSalon"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="@string/timing"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="@id/line3ADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/line3ADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/line3ADSalon" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutGetTimeStartEndADSalon"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/timingStartEnd"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtTamingSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etGetTimeStartEndADSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:paddingStart="@dimen/_32sdp"
+                            android:paddingEnd="@dimen/_5sdp"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@null"
+                        android:contentDescription="@string/todo"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintStart_toStartOf="@id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintTop_toTopOf="@id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintWidth_percent=".06"
+                        app:srcCompat="@drawable/ic_time_circle" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutGetTimeOneSessionADSalon"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/durationOfEachSession"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etGetTimeOneSessionADSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:paddingStart="@dimen/_32sdp"
+                            android:paddingEnd="@dimen/_5sdp"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:background="@null"
+                        android:contentDescription="@string/todo"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="@id/txtInputLayoutGetTimeOneSessionADSalon"
+                        app:layout_constraintStart_toStartOf="@id/txtInputLayoutGetTimeOneSessionADSalon"
+                        app:layout_constraintTop_toTopOf="@id/txtInputLayoutGetTimeOneSessionADSalon"
+                        app:layout_constraintWidth_percent=".06"
+                        app:srcCompat="@drawable/ic_time_circle" />
+
+
+                    <View
+                        android:id="@+id/line4ADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/blueGrey3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtInputLayoutGetTimeOneSessionADSalon"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <TextView
+                        android:id="@+id/txtPriceSessionSalon"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="@string/PriceSession"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="@id/line4ADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/line4ADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/line4ADSalon" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtInputLayoutPriceSessionADSalon"
+                        style="@style/Widget.AppTheme.TextInputLayoutList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:hint="@string/PriceSessionOfToman"
+                        android:textColorHint="@color/grey2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtPriceSessionSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPriceSessionADSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/estedad_regular"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:overScrollMode="never"
+                            android:selectAllOnFocus="true"
+                            android:textDirection="rtl"
+                            android:textSize="@dimen/_12ssp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/txtDesADSalon"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="start"
+                        android:text="@string/DesADSalon"
+                        android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_10ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutPriceSessionADSalon"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <View
+                        android:id="@+id/line5ADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/blueGrey3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtDesADSalon"
+                        app:layout_constraintWidth_percent=".9" />
+
+
+                    <TextView
+                        android:id="@+id/txtUploadImageADSalon"
+                        style="@style/textTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:gravity="center|start"
+                        android:text="@string/uploadImageAsSalon"
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_14ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="@id/line5ADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/line5ADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/line5ADSalon" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constUploadImageADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/border_with_dash"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtUploadImageADSalon"
+                        app:layout_constraintWidth_percent=".9">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerUploadImageADSalon"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_8sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/lineDashADSalon"/>
+
+                        <ImageView
+                            android:id="@+id/lineDashADSalon"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_10sdp"
+                            android:src="@drawable/line_with_dash"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/recyclerUploadImageADSalon"
+                            app:layout_constraintBottom_toTopOf="@id/txtBtnUploadImageADSalon"/>
+
+
+                        <TextView
+                            android:id="@+id/txtBtnUploadImageADSalon"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="?attr/actionBarSize"
+                            android:layout_marginBottom="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:text="@string/uploadImageSalon"
+                            android:textColor="@color/blue"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/lineDashADSalon"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_80sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/constUploadImageADSalon"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <Button
+            android:id="@+id/btnSaveInfoADSalon"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:background="@drawable/bg_shape_blue"
+            android:text="@string/saveInfo"
+            android:textColor="@color/white"
+            android:theme="@style/roundedCornerMaterialButtonBlue"
+            app:autoSizeMaxTextSize="@dimen/_12ssp"
+            app:autoSizeMinTextSize="@dimen/_3ssp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/btnLoadingADSalon"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSaveInfoADSalon"
+            app:layout_constraintEnd_toEndOf="@+id/btnSaveInfoADSalon"
+            app:layout_constraintStart_toStartOf="@+id/btnSaveInfoADSalon"
+            app:layout_constraintTop_toTopOf="@+id/btnSaveInfoADSalon"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+
+        <View
+            android:id="@+id/pageWhiteADSalon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:visibility="gone" />
+
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/refreshAESalon"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

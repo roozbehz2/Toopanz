@@ -1,7 +1,7 @@
 package com.roozbeh.toopan.modelApi
 
 data class ResponseLogin(
-    val refToken: String,
-    val token: String,
-    val user: User
+    var refToken: String,
+    var token: String,
+    var user: User
 )

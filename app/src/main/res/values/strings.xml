@@ -45,7 +45,32 @@
     <string name="salonNoExist">شما هنوز سالنی ثبت نکرده اید</string>
     <string name="desNoSalonExist">این قسمت مربوط به مدیریت سالن و سانس ها می باشد لطفا اولین سالن خود را ثبت کنید</string>
     <string name="makeNewSalons">ثبت سالن جدید</string>
-    <string name="hintSearch">جستجو اسم سالن...</string>
+    <string name="hintSearch">جستجو اسم سالن…</string>
     <string name="addNewSalons">افزودن سالن جدید</string>
+    <string name="titlePriceSince">قیمت هر سانس:</string>
+    <string name="aboutSince">وضعیت:</string>
+    <string name="inProcess">در حال بررسی</string>
+    <string name="manageSince">مدیریت سانس ها</string>
+    <string name="startJam"><big><font color="#000" face="estedad_regular">برگزاری جام</font></big></string>
+    <string name="detailsAndEdit"><big><font color="#17ACFF" face="estedad_regular">جزئیات و ویرایش</font></big></string>
+    <string name="addOrEditSalon">افزدون یا ویرایش سالن</string>
+    <string name="nameSalon">اسم سالن</string>
+    <string name="TypeInterfaceSalon">نوع کاربری سالن</string>
+    <string name="TypeOwnershipSalon">نوع مالکیت سالن</string>
+    <string name="addressSalon">آدرس سالن</string>
+    <string name="selectOnMap">انتخاب روی نقشه</string>
+    <string name="noSalonInMyCity">سالن در استان و شهرستان محل زندگی خودم واقع است.</string>
+    <string name="exactAddress">آدرس دقیق</string>
+    <string name="PossibilitiesSalon">امکانات سالن</string>
+    <string name="timing">زمان بندی</string>
+    <string name="timingStartEnd">ساعت شروع و پایان کار</string>
+    <string name="durationOfEachSession">مدت زمان هر سانس به دقیقه</string>
+    <string name="PriceSession">هزینه سانس</string>
+    <string name="PriceSessionOfToman">هزینه هر سانس (به تومان)</string>
+    <string name="DesADSalon">این هزینه کلی برا همه سانس ها می باشد. در صورتی که قیمت بعضی از سانس ها متفاوت باشد میتوانید از قسمت مدیریت سانس بعد از پایان ثبت سالن اقدام فرمایید.</string>
+    <string name="uploadImageAsSalon">آپلود عکس از سالن</string>
+    <string name="uploadImageSalon">آپلود عکس سالن</string>
+    <string name="submit">ثبت</string>
+    <string name="accept">تایید</string>
 
 </resources>

@@ -14,18 +14,13 @@ import androidx.activity.result.contract.ActivityResultContracts.StartActivityFo
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
-import com.android.volley.Response
 import com.android.volley.VolleyError
-import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.gson.JsonObject
 import com.roozbeh.toopan.R
 import com.roozbeh.toopan.app.MyApplication
 import com.roozbeh.toopan.communication.netDetector.NetDetector
-import com.roozbeh.toopan.communication.volleyPackage.FileDataPart
 import com.roozbeh.toopan.communication.volleyPackage.VolleyController
-import com.roozbeh.toopan.communication.volleyPackage.VolleyFileUploadRequest
 import com.roozbeh.toopan.communication.volleyRequest.*
 import com.roozbeh.toopan.databinding.ActivityEditInfoUserBinding
 import com.roozbeh.toopan.interfaces.VolleyInterface
@@ -44,6 +39,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private var getUpdateProfileTag: String? = "getUpdateProfileTag"
     private var getUploadProfileTag: String? = "getUploadProfileTag"
     private var user: User = User()
+    private var genders: ListGender = ListGender()
     private var stateId = 0
     private var cityId = 0
     private var genderId = 0
@@ -148,8 +144,9 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun reqGender() {
         VolleyGetGender.getGender(object : VolleyInterface<ListGender> {
-            override fun onSuccess(genders: ListGender) {
-                setGender(genders)
+            override fun onSuccess(gender: ListGender) {
+                genders = gender
+                setGender()
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -315,23 +312,24 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     //gender
-    private fun setGender(gender: ArrayList<Gender>) {
+    private fun setGender() {
         val states: ArrayList<String> = ArrayList()
-        for (i in gender.indices step 1) {
-            states.add(gender[i].type)
+        for (i in genders.indices step 1) {
+            genders[i].type?.let { states.add(it) }
         }
         val adapter = ArrayAdapter(
             this,
             android.R.layout.select_dialog_item, states
         )
 
+        val gender1 = genders.find { gender -> user.gender == gender.id }
 
-        for ((index, value) in gender.withIndex()) {
-            if (value.id != 0) {
-                if (genderId == value.id)
-                    binding.autoTextGender.setText(states[genderId - 1])
-            }
+
+        if (gender1 != null) {
+            binding.autoTextGender.setText(gender1.type)
         }
+
+
         binding.autoTextGender.setAdapter(adapter)
 //        binding.autoTextGender.postDelayed(Runnable {
 ////            binding.autoTextState.setText("PREM")
@@ -341,8 +339,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         binding.autoTextGender.onItemClickListener =
             OnItemClickListener { parent, view, position, id ->
-//            val item = parent.getItemAtPosition(position)
-                genderId = gender[id.toInt()].id
+                genderId = genders[id.toInt()].id!!
                 UiHandler.keyboardDown(binding.autoTextGender, this)
                 binding.autoTextGender.isFocusable = false
             }

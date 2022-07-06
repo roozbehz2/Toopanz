@@ -8,29 +8,27 @@ import com.roozbeh.toopan.communication.volleyPackage.AuthRequest
 import com.roozbeh.toopan.communication.volleyPackage.VolleyController
 import com.roozbeh.toopan.interfaces.VolleyInterface
 import com.roozbeh.toopan.modelApi.ListCity
-import com.roozbeh.toopan.modelApi.ResponseLogin
-import com.roozbeh.toopan.modelApi.User
+import com.roozbeh.toopan.modelApi.PaginationBody
+import com.roozbeh.toopan.modelApi.SalonsResponse
 import com.roozbeh.toopan.utility.Constants
 
-class VolleyRefreshToken {
+class VolleyGetSalons {
     companion object {
 
-        fun getToken(
-            check: VolleyInterface<ResponseLogin>,
+        fun getSalons(
+            check: VolleyInterface<SalonsResponse>,
             context: Context?,
-            refreshToken: JsonObject,
+            body: PaginationBody,
             TAG: String?,
         ) {
-            val url: String = Constants.BASE_URL + Constants.POST_REFRESH_TOKEN
-//            val jsonObject : JsonObject? = null
-//            jsonObject?.addProperty("refToken", refreshToken)
+            val url: String = Constants.BASE_URL + Constants.GET_SALONS
 
-            val request: AuthRequest<ResponseLogin> = AuthRequest<ResponseLogin>(
+            val request: AuthRequest<SalonsResponse> = AuthRequest<SalonsResponse>(
                 Request.Method.POST,
                 url,
-                ResponseLogin::class.java,
-                refreshToken,
-                false,
+                SalonsResponse::class.java,
+                body,
+                true,
                 context,
                 { response -> check.onSuccess(response) },
                 { error -> check.onFailed(error) }

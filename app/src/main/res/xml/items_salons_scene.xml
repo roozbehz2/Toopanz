@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+   <!-- <ConstraintSet android:id="@+id/start" >
+        <Constraint
+            android:id="@+id/constParentItemSalon"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/constPopup"
+            app:layout_constraintWidth_percent="0"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@+id/imgDotsFake"
+            app:layout_constraintStart_toStartOf="@+id/imgDotsFake" />
+        <Constraint
+            android:id="@+id/viewGrey"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            android:background="@drawable/border_grey_back_gery"
+            app:layout_constraintEnd_toEndOf="@id/constParentItemSalon"
+            app:layout_constraintBottom_toBottomOf="@id/constParentItemSalon"
+            />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end" >
+        <Constraint
+            android:id="@+id/constParentItemSalon"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/constPopup"
+            app:layout_constraintWidth_percent=".5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/constParentItemSalon"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="@+id/imgDotsFake"
+            app:layout_constraintStart_toStartOf="@+id/imgDotsFake" />
+        <Constraint
+            android:id="@+id/viewGrey"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            android:background="@drawable/border_grey_back_gery"
+            app:layout_constraintStart_toStartOf="@id/constParentItemSalon"
+            app:layout_constraintEnd_toEndOf="@id/constParentItemSalon"
+            app:layout_constraintBottom_toBottomOf="@id/constParentItemSalon"
+            app:layout_constraintTop_toTopOf="@id/constParentItemSalon"/>
+    </ConstraintSet>
+
+
+    <Transition
+        app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
+        app:duration="200">
+        <OnClick app:targetId="@+id/imgDotsFake" />
+    </Transition>
+    <Transition
+        app:constraintSetEnd="@+id/start"
+        app:duration="200">
+        <OnClick app:targetId="@+id/constParentItemSalon" />
+    </Transition>-->
+</MotionScene>

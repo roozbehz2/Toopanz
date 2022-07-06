@@ -18,6 +18,7 @@ object Constants {
     const val ID_KEY = "userIdKey"
     const val REFRESH_TOKEN_KEY = "userRefreshTokenKey"
     const val LOGIN_KEY = "loginUser"
+    const val BUNDLE_ADD_OR_EDIT_KEY = "bundleAddOrEditSalon"
 
 
 
@@ -33,6 +34,7 @@ object Constants {
     const val POST_UPDATE_PROFILE = "/user/update-profile"
     const val POST_UPLOAD_PROFILE = "/user/upload-profile/"
     const val POST_REFRESH_TOKEN = "/user/refresh-token"
+    const val GET_SALONS = "/salon/get-all"
 
 
     //Folders

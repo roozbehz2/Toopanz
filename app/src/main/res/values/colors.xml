@@ -18,12 +18,15 @@
     <color name="redAlarm">#B91C1C</color>
     <color name="blueGrey">#F5F6FD</color>
     <color name="blueGrey2">#EDEDED</color>
+    <color name="blueGrey3">#E9EAF2</color>
     <color name="blackToopan">#2B3234</color>
     <color name="snackBar">#333233</color>
     <color name="green">#48D84E</color>
     <color name="grey1">#5E7075</color>
     <color name="grey2">#A1A9BC</color>
     <color name="grey3">#838CA3</color>
+    <color name="grey4">#8020272F</color>
+    <color name="grey5">#B1C8E2</color>
     <color name="rippleWhite">#33A1A9BC</color>
     <color name="blue">#17ACFF</color>
     <color name="blue2">#3317ACFF</color>

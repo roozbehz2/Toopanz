@@ -96,4 +96,7 @@ dependencies {
 
 //    StfalconImageViewer
     implementation 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'
+
+
+    implementation 'nl.joery.timerangepicker:timerangepicker:1.0.0'
 }

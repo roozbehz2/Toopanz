@@ -20,11 +20,11 @@ object Utils {
     fun getSignedInToken(context: Context): String? {
         var token: String? = null
         try {
-            val preferences = context.applicationContext.getSharedPreferences(
-                Constants.MY_SAVE_PREF,
-                Context.MODE_PRIVATE
-            )
-            token = preferences.getString(Constants.TOKEN_KEY, "")
+//            val preferences = context.applicationContext.getSharedPreferences(
+//                Constants.MY_SAVE_PREF,
+//                Context.MODE_PRIVATE
+//            )
+            token = MyApplication.preferences().getString(Constants.TOKEN_KEY, "")
             if (token!!.isEmpty()) {
                 token = null
             }
