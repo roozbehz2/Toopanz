@@ -1,6 +1,6 @@
 package com.roozbeh.toopan.modelApi
 
-class Gender{
+class SalonOwnerShip {
     var id: Int? = null
     var type: String? = null
 }

@@ -1,4 +1,7 @@
 package com.roozbeh.toopan.modelApi
 
 
-data class ListState(val states: List<State>)
+class ListState {
+    var states: ArrayList<State>? = null
+}
+

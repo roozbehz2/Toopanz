@@ -1,6 +1,8 @@
 package com.roozbeh.toopan.modelApi
 
-class SalonPossibilities {
+import java.io.Serializable
+
+class SalonPossibilities: Serializable {
     var id: Int? = null
     var possibilities: String? = null
 }

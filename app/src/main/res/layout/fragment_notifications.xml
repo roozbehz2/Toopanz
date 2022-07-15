@@ -7,15 +7,6 @@
     android:background="@color/blue"
     tools:context=".fragment.NotificationsFragment">
 
-    <nl.joery.timerangepicker.TimeRangePicker
-        android:id="@+id/picker"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        app:trp_stepTimeMinutes="30"
-        app:trp_endTime="6:30"
-        app:trp_sliderWidth="@dimen/_20sdp"
-        app:trp_startTime="22:00" />
-
 
 
 </FrameLayout>

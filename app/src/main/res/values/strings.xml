@@ -17,13 +17,18 @@
     <string name="about_as">ارتباط با ما</string>
     <string name="exit_account">خروج از حساب کاربری</string>
     <string name="noInternet">عدم دسترسی به اینترنت.</string>
+    <string name="errorRequired">فیلد را کامل کنید</string>
     <string name="Image">Image</string>
     <string name="updateIsSuccessfully">ٍثبت اطلاعات با موفقیت انجام شد</string>
+    <string name="please_grant_GPS_permission">دسترسی GPS لاظم است</string>
+    <string name="permission_denied_can_not_find_you_on_map">دسترسی GPS ندارم نمیتوانم روی مپ پیدات کنم</string>
 
 
     // body server
     <string name="username">username</string>
     <string name="passwordServer">password</string>
+    <string name="salonId">salonId</string>
+    <string name="salonImageName">salonImageName</string>
     <string name="name_lastname">نام و نام خانوادگی</string>
     <string name="phone_number">شماره تلفن</string>
     <string name="NationalCode">کد ملی</string>
@@ -45,7 +50,8 @@
     <string name="salonNoExist">شما هنوز سالنی ثبت نکرده اید</string>
     <string name="desNoSalonExist">این قسمت مربوط به مدیریت سالن و سانس ها می باشد لطفا اولین سالن خود را ثبت کنید</string>
     <string name="makeNewSalons">ثبت سالن جدید</string>
-    <string name="hintSearch">جستجو اسم سالن…</string>
+    <string name="hintSearchSalon">جستجو اسم سالن…</string>
+    <string name="hintSearchAddress">جستجو آدرس…</string>
     <string name="addNewSalons">افزودن سالن جدید</string>
     <string name="titlePriceSince">قیمت هر سانس:</string>
     <string name="aboutSince">وضعیت:</string>
@@ -64,7 +70,7 @@
     <string name="PossibilitiesSalon">امکانات سالن</string>
     <string name="timing">زمان بندی</string>
     <string name="timingStartEnd">ساعت شروع و پایان کار</string>
-    <string name="durationOfEachSession">مدت زمان هر سانس به دقیقه</string>
+    <string name="durationOfEachSession">مدت زمان هر سانس (به دقیقه)</string>
     <string name="PriceSession">هزینه سانس</string>
     <string name="PriceSessionOfToman">هزینه هر سانس (به تومان)</string>
     <string name="DesADSalon">این هزینه کلی برا همه سانس ها می باشد. در صورتی که قیمت بعضی از سانس ها متفاوت باشد میتوانید از قسمت مدیریت سانس بعد از پایان ثبت سالن اقدام فرمایید.</string>
@@ -72,5 +78,6 @@
     <string name="uploadImageSalon">آپلود عکس سالن</string>
     <string name="submit">ثبت</string>
     <string name="accept">تایید</string>
+    <string name="forDeleteHoldItem">برای حذف کردن, روی عکس نگه دارید</string>
 
 </resources>

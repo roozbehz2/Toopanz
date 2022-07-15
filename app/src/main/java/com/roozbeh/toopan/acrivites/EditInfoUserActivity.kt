@@ -60,12 +60,12 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         checkNet()
         binding.autoTextState.setOnClickListener {
-            checkNetForState()
+//            checkNetForState()
         }
 
         binding.autoTextCity.setOnClickListener {
             if (stateId != 0) {
-                checkNetForCity()
+//                checkNetForCity()
             } else {
                 UiHandler.keyboardDown(binding.autoTextCity, this)
                 Utils.showSnackBar(
@@ -116,6 +116,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                     binding.refreshEditProfile.visibility = View.GONE
                     binding.btnSaveInfo.isEnabled = true
                     setContent(user)
+                    requestServerState()
                     reqGender()
                 }
 
@@ -186,19 +187,19 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
 
     //state
-    private fun checkNetForState() {
-        NetDetector.check {
-            if (it) {
-                requestServerState()
-            }
-        }
-    }
+//    private fun checkNetForState() {
+//        NetDetector.check {
+//            if (it) {
+//                requestServerState()
+//            }
+//        }
+//    }
 
     private fun requestServerState() {
 
         VolleyGetState.getState(object : VolleyInterface<ListState> {
-            override fun onSuccess(state: ListState) {
-                setState(state.states)
+            override fun onSuccess(body: ListState) {
+                body.states?.let { setState(it) }
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -231,10 +232,10 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         )
 
         binding.autoTextState.setAdapter(adapter)
-        binding.autoTextState.postDelayed(Runnable {
-//            binding.autoTextState.setText("PREM")
-            binding.autoTextState.showDropDown()
-        }, 10)
+//        binding.autoTextState.postDelayed(Runnable {
+////            binding.autoTextState.setText("PREM")
+//            binding.autoTextState.showDropDown()
+//        }, 10)
 
 
         binding.autoTextState.onItemClickListener =
@@ -243,6 +244,8 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
                 stateId = state[id.toInt()].id!!
                 UiHandler.keyboardDown(binding.autoTextState, this)
                 binding.autoTextState.isFocusable = false
+                binding.autoTextCity.text.clear()
+                checkNetForCity()
             }
 
     }
@@ -261,7 +264,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         VolleyGetCity.getCity(object : VolleyInterface<ListCity> {
             override fun onSuccess(city: ListCity) {
-                setCity(city.cities)
+                city.cities?.let { setCity(it) }
             }
 
             override fun onFailed(error: VolleyError?) {

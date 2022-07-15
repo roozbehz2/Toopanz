@@ -42,14 +42,10 @@ class SalonsAdapter() :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        var image = ""
-        for (img in item.images) {
-            image = img
-        }
 
         Glide
             .with(cnx!!)
-            .load(Constants.BASE_URL + image)
+            .load(Constants.BASE_URL + item.avatar)
             .placeholder(R.drawable.ic_clubs)
             .into(holder.binding.imgSalon)
 
@@ -87,7 +83,7 @@ class SalonsAdapter() :
 
     override fun getItemCount(): Int = items.size
 
-    class ViewHolder(var binding: ItemsSalonsBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(var binding: ItemsSalonsBinding) : RecyclerView.ViewHolder(binding.root)
 
     private fun add(item: Salons) {
         items.add(item)
@@ -120,7 +116,7 @@ class SalonsAdapter() :
                             Toast.makeText(cnx, position.toString(), Toast.LENGTH_SHORT).show()
                         }
                         R.id.edit -> {
-                            listener.onEditSalon(items[position])
+                            listener.onEditSalon(items[position].id)
                         }
                         else -> true
 
@@ -154,7 +150,7 @@ class SalonsAdapter() :
 
     interface OnItemClickListener {
         fun onItemClick(/*id: String, marketCap:String, currentPrice:String, priceChangePercentage24h:Double*/)
-        fun onEditSalon(salons: Salons)
+        fun onEditSalon(salonsId: Int?)
         fun onManageClick()
     }
 }

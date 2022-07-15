@@ -147,8 +147,8 @@ class SalonsFragment : Fragment(), View.OnClickListener {
 
                     }
 
-                    override fun onEditSalon(salons: Salons) {
-                        makeNewSalon(salons)
+                    override fun onEditSalon(salonsId: Int?) {
+                        selectAddOrEdit(salonsId)
                     }
 
 
@@ -176,19 +176,17 @@ class SalonsFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            binding.fabAddNewSalons.id -> makeNewSalon()
+            binding.fabAddNewSalons.id -> selectAddOrEdit()
 
-            binding.constMakeNewSalon.id -> makeNewSalon()
+            binding.constMakeNewSalon.id -> selectAddOrEdit()
         }
     }
 
-    private fun makeNewSalon(salons: Salons? = null) {
-        if (salons != null) {
+    private fun selectAddOrEdit(salonsId: Int? = null) {
+        if (salonsId != null) {
             //edit salon
 
-            val mBundle = Bundle()
-            mBundle.putSerializable("salons", salons)
-            transactionAddOrEdit(mBundle)
+            transactionAddOrEdit(salonsId)
         } else {
             //make new salon
             transactionAddOrEdit()
@@ -198,10 +196,10 @@ class SalonsFragment : Fragment(), View.OnClickListener {
     }
 
 
-    private fun transactionAddOrEdit(bundle: Bundle? = null) {
+    private fun transactionAddOrEdit(salonsId: Int? = null) {
         val intent = Intent(requireContext(), AddOrEditSalonActivity::class.java)
-        if (bundle != null) {
-            intent.putExtra(Constants.BUNDLE_ADD_OR_EDIT_KEY, bundle)
+        if (salonsId != null) {
+            intent.putExtra(Constants.BUNDLE_ADD_OR_EDIT_KEY, salonsId)
         }
         startActivity(intent)
         requireActivity().overridePendingTransition(

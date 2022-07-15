@@ -27,7 +27,10 @@
     <color name="grey3">#838CA3</color>
     <color name="grey4">#8020272F</color>
     <color name="grey5">#B1C8E2</color>
+    <color name="grey6">#E6E8F0</color>
+    <color name="grey7">#535767</color>
     <color name="rippleWhite">#33A1A9BC</color>
+    <color name="blackTransparent60">#99000000</color>
     <color name="blue">#17ACFF</color>
     <color name="blue2">#3317ACFF</color>
     <color name="blue3">#1E88E5</color>

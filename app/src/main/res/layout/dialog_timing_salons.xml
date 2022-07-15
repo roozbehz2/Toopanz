@@ -1,42 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <nl.joery.timerangepicker.TimeRangePicker
-        android:id="@+id/timePickerDialog"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:trp_stepTimeMinutes="30"
-        app:trp_endTime="6:30"
-        app:trp_sliderWidth="@dimen/_20sdp"
-        app:trp_startTime="22:00" />
+        android:background="@drawable/border_blue_btn"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--
-    <TextView
-        android:id="@+id/txtSubmitDialogTiming"
-        style="@style/textDes"
-        android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:gravity="center"
-        android:text="@string/accept"
-        android:textColor="@color/blue"
-        app:autoSizeMaxTextSize="@dimen/_12ssp"
-        app:autoSizeMinTextSize="@dimen/_3ssp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintTop_toBottomOf="@+id/timePickerDialog"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
--->
+        <nl.joery.timerangepicker.TimeRangePicker
+            android:id="@+id/timePickerDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_20sdp"
+            app:trp_thumbIconStart="@drawable/ic_time_circle_white"
+            app:trp_thumbIconEnd="@drawable/ic_time_circle_white"
+            app:trp_thumbIconSize="@dimen/_18sdp"
+            app:trp_sliderRangeGradientStart="@color/blue"
+            app:trp_sliderRangeGradientMiddle="@color/grey5"
+            app:trp_sliderRangeGradientEnd="@color/red"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:trp_stepTimeMinutes="30"
+            app:trp_sliderWidth="@dimen/_10sdp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent=".4"
+            app:layout_constraintHeight_percent=".3"
+            app:layout_constraintTop_toTopOf="@id/timePickerDialog"
+            app:layout_constraintBottom_toBottomOf="@id/timePickerDialog"
+            app:layout_constraintEnd_toEndOf="@id/timePickerDialog"
+            app:layout_constraintStart_toStartOf="@id/timePickerDialog">
 
 
+            <TextView
+                android:id="@+id/txtStartSalons"
+                style="@style/textDes"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textColor="@color/blackToopan"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/txtEndSalons"
+                />
+
+            <TextView
+                android:id="@+id/txtEndSalons"
+                style="@style/textDes"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textColor="@color/blackToopan"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtStartSalons"
+                />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/txtSubmitDialogTiming"
+                style="@style/textDes"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/accept"
+                android:textColor="@color/blue"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintTop_toBottomOf="@+id/timePickerDialog"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

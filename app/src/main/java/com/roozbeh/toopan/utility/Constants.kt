@@ -1,7 +1,6 @@
 package com.roozbeh.toopan.utility
 
 import android.os.Environment
-import android.provider.Settings.Global.getString
 import com.roozbeh.toopan.R
 import com.roozbeh.toopan.app.MyApplication
 import java.io.File
@@ -19,8 +18,11 @@ object Constants {
     const val REFRESH_TOKEN_KEY = "userRefreshTokenKey"
     const val LOGIN_KEY = "loginUser"
     const val BUNDLE_ADD_OR_EDIT_KEY = "bundleAddOrEditSalon"
+    const val MAP_STYLE = "mapStyle"
 
 
+    var lat = 0.0
+    var lon = 0.0
 
 
 
@@ -33,8 +35,13 @@ object Constants {
     const val GET_GENDER = "/user/get-sex"
     const val POST_UPDATE_PROFILE = "/user/update-profile"
     const val POST_UPLOAD_PROFILE = "/user/upload-profile/"
+    const val POST_UPLOAD_PROFILE_SALON = "/salon/upload-avatar/"
+    const val POST_UPLOAD_IMAGE_SALON = "/salon/upload-images/"
     const val POST_REFRESH_TOKEN = "/user/refresh-token"
     const val GET_SALONS = "/salon/get-all"
+    const val GET_SALONS_INFO_ADD = "/salon/create-salon-data"
+    const val GET_SALONS_INFO_EDIT = "/salon/get-salon-update/"
+    const val POST_DELETE_IMAGE_SALON = "/salon/delete-salon-image"
 
 
     //Folders

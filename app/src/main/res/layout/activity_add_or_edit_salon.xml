@@ -71,7 +71,6 @@
                             android:id="@+id/imgProfileADSalon"
                             android:layout_width="@dimen/_75sdp"
                             android:layout_height="@dimen/_75sdp"
-                            android:src="@drawable/ic_profile"
                             android:scaleType="centerCrop" />
 
                     </androidx.cardview.widget.CardView>
@@ -96,6 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_25sdp"
                         android:hint="@string/nameSalon"
+                        app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/TypeInterfaceSalon"
+                        app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -148,6 +149,7 @@
                         style="@style/Widget.AppTheme.AutoCompleteTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        app:errorEnabled="true"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/TypeOwnershipSalon"
                         android:textColorHint="@color/grey2"
@@ -174,6 +176,7 @@
                         style="@style/Widget.AppTheme.AutoCompleteTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        app:errorEnabled="true"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/sex"
                         android:textColorHint="@color/grey2"
@@ -183,7 +186,7 @@
                         app:layout_constraintWidth_percent=".9">
 
                         <AutoCompleteTextView
-                            android:id="@+id/autoTextGender"
+                            android:id="@+id/autoTextGenderSalon"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
                             android:fontFamily="@font/estedad_regular"
@@ -248,13 +251,14 @@
                         android:layout_marginStart="@dimen/_4sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/State"
+                        app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="@id/txtInputLayoutTypeOwnershipSalon"
                         app:layout_constraintStart_toEndOf="@id/spinnerCity"
                         app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
 
                         <AutoCompleteTextView
-                            android:id="@+id/autoTextState"
+                            android:id="@+id/autoTextStateSalon"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
                             android:fontFamily="@font/estedad_regular"
@@ -273,13 +277,14 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_4sdp"
                         android:hint="@string/city"
+                        app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toStartOf="@id/spinnerState"
                         app:layout_constraintStart_toStartOf="@id/spinnerSex"
                         app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
 
                         <AutoCompleteTextView
-                            android:id="@+id/autoTextCity"
+                            android:id="@+id/autoTextCitySalon"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
                             android:fontFamily="@font/estedad_regular"
@@ -296,7 +301,11 @@
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
                         android:text="@string/noSalonInMyCity"
+                        android:fontFamily="@font/estedad_regular"
                         android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_10ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
                         app:layout_constraintEnd_toEndOf="@id/spinnerSex"
                         app:layout_constraintStart_toStartOf="@id/spinnerSex"
                         app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
@@ -309,6 +318,7 @@
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/exactAddress"
+                        app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHeight_percent=".1"
@@ -332,6 +342,15 @@
                             android:textSize="@dimen/_12ssp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+
+                    <View
+                        android:id="@+id/viewTxtInputLayoutAddressADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtInputLayoutAddressADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/txtInputLayoutAddressADSalon"
+                        app:layout_constraintEnd_toEndOf="@+id/txtInputLayoutAddressADSalon"
+                        app:layout_constraintTop_toTopOf="@+id/txtInputLayoutAddressADSalon"/>
 
 
                     <View
@@ -367,6 +386,8 @@
                         android:id="@+id/recyclerPossibilitiesSalon"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:maxHeight="@dimen/_100sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:layout_constraintEnd_toEndOf="@id/txtPossibilitiesSalon"
                         app:layout_constraintStart_toStartOf="@id/txtPossibilitiesSalon"
@@ -410,6 +431,7 @@
                         android:layout_marginTop="@dimen/_10sdp"
                         android:hint="@string/timingStartEnd"
                         android:textColorHint="@color/grey2"
+                        app:errorEnabled="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtTamingSalon"
@@ -432,6 +454,15 @@
 
                     </com.google.android.material.textfield.TextInputLayout>
 
+                    <View
+                        android:id="@+id/viewTxtInputLayoutGetTimeStartEndADSalon"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintTop_toTopOf="@+id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/txtInputLayoutGetTimeStartEndADSalon"
+                        app:layout_constraintEnd_toEndOf="@+id/txtInputLayoutGetTimeStartEndADSalon"/>
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -453,6 +484,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
+                        app:errorEnabled="true"
                         android:hint="@string/durationOfEachSession"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -527,6 +559,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
+                        app:errorEnabled="true"
                         android:hint="@string/PriceSessionOfToman"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -601,19 +634,21 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:background="@drawable/border_with_dash"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtUploadImageADSalon"
-                        app:layout_constraintWidth_percent=".9">
+                        app:layout_constraintEnd_toEndOf="@+id/txtUploadImageADSalon"
+                        app:layout_constraintStart_toStartOf="@+id/txtUploadImageADSalon"
+                        app:layout_constraintTop_toBottomOf="@id/txtUploadImageADSalon">
 
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recyclerUploadImageADSalon"
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/_8sdp"
+                            android:maxHeight="@dimen/_100sdp"
+                            android:padding="@dimen/_5sdp"
+                            android:layoutDirection="rtl"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintBottom_toTopOf="@id/lineDashADSalon"/>
 
                         <ImageView
@@ -698,8 +733,7 @@
             android:id="@+id/pageWhiteADSalon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
-            android:visibility="gone" />
+            android:background="@color/white"/>
 
 
         <com.airbnb.lottie.LottieAnimationView

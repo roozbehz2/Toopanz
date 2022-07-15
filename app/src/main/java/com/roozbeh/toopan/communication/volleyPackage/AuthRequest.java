@@ -90,7 +90,10 @@ public class AuthRequest<T> extends Request<T> {
             authHeader.put("Authorization", "Bearer " + MyApplication.Companion.preferences().getString(Constants.TOKEN_KEY, ""));
             this.headers = authHeader;
         } else {
-            this.headers = null;
+
+            Map<String, String> authHeader2 = new HashMap<>();
+            authHeader2.put("Api-Key", "service.d2647ba1766f4366a764c9953e4b65f3");
+            this.headers = authHeader2;
         }
     }
 
@@ -138,6 +141,14 @@ public class AuthRequest<T> extends Request<T> {
     protected VolleyError parseNetworkError(final VolleyError volleyError) {
         final VolleyError[] vError = new VolleyError[1];
         if (volleyError.networkResponse != null && volleyError.networkResponse.data != null) {
+
+            JSONObject errorResponse1 = null;
+            try {
+                errorResponse1 = new JSONObject(new String(volleyError.networkResponse.data, StandardCharsets.UTF_8));
+                Log.e("rrr", "parseNetworkError:error  " + errorResponse1 );
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             if (volleyError instanceof AuthFailureError) {
 
                 try {

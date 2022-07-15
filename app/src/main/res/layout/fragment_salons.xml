@@ -38,7 +38,7 @@
                     android:drawableEnd="@drawable/ic_search"
                     android:drawablePadding="@dimen/_10sdp"
                     android:fontFamily="@font/estedad_regular"
-                    android:hint="@string/hintSearch"
+                    android:hint="@string/hintSearchSalon"
                     android:imeOptions="actionNext"
                     android:maxLines="1"
                     android:overScrollMode="never"
@@ -65,25 +65,26 @@
                 app:layout_constraintTop_toBottomOf="@id/constSearchSalons">
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerSalonsList"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerSalonsList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
             </com.simform.refresh.SSPullToRefreshLayout>
+
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabAddNewSalons"
+                style="@style/textDes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_20sdp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/addNewSalons"
+                android:textColor="@color/white"
+                app:layout_behavior="com.eventizon.behavior.ScrollAwareFABBehavior"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                style="@style/textDes"
-                app:layout_behavior="com.eventizon.behavior.ScrollAwareFABBehavior"
-                android:textColor="@color/white"
-                android:backgroundTint="@color/orange"
-                app:rippleColor="@color/orange2"
-                android:text="@string/addNewSalons"/>
+                app:rippleColor="@color/orange2" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
