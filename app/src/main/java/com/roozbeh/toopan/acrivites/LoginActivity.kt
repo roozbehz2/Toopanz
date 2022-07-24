@@ -62,15 +62,25 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun requestServer() {
         VolleyLogin.login(
             object : VolleyInterface<ResponseLogin> {
-                override fun onSuccess(responseLogin: ResponseLogin) {
+                override fun onSuccess(body: ResponseLogin?) {
                     binding.refreshLogin.visibility = View.INVISIBLE
-                    responseLogin.user.id?.let {
+                    body?.user?.id?.let {
                         MyApplication.preferences().edit().putInt(Constants.ID_KEY,
                             it
                         ).apply()
                     }
-                    MyApplication.preferences().edit().putString(Constants.TOKEN_KEY, responseLogin.token).apply()
-                    MyApplication.preferences().edit().putString(Constants.REFRESH_TOKEN_KEY, responseLogin.refToken)
+                    MyApplication.preferences().edit().putString(Constants.TOKEN_KEY, body?.token).apply()
+                    body?.user?.city?.id?.let {
+                        MyApplication.preferences().edit().putInt(Constants.CITY_ID,
+                            it
+                        ).apply()
+                    }
+                    body?.user?.city?.state?.id?.let {
+                        MyApplication.preferences().edit().putInt(Constants.STATE_ID,
+                            it
+                        ).apply()
+                    }
+                    MyApplication.preferences().edit().putString(Constants.REFRESH_TOKEN_KEY, body?.refToken)
                         .apply()
                     MyApplication.preferences().edit().putBoolean(Constants.LOGIN_KEY, true).apply()
 

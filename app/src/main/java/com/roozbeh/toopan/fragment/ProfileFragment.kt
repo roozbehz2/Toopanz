@@ -87,9 +87,11 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     private fun requestServer() {
         VolleyGetUser.getUser(
             object : VolleyInterface<User> {
-                override fun onSuccess(user: User) {
-                    this@ProfileFragment.user = user
-                    setContent(user)
+                override fun onSuccess(user: User?) {
+                    user?.let {
+                        this@ProfileFragment.user = it
+                        setContent(it)
+                    }
                 }
 
                 override fun onFailed(error: VolleyError?) {

@@ -212,12 +212,14 @@ public class AuthRequest<T> extends Request<T> {
                         vError[0] = new VolleyError(new String(error.networkResponse.data));
                     }
                 }, AppUtils.getSignedInUser(mContext), mContext);*/
+
+                vError[0] = new VolleyError(context.getString(R.string.re_auth_try_again));
             } else {
                 vError[0] = new VolleyError(new String(volleyError.networkResponse.data, StandardCharsets.UTF_8));
             }
         }
-//        return vError[0];
-        return volleyError;
+        return vError[0];
+//        return volleyError;
     }
 }
 

@@ -13,6 +13,7 @@ import com.roozbeh.toopan.app.MyApplication
 import com.roozbeh.toopan.utility.Constants
 import com.roozbeh.toopan.utility.UiHandler
 import com.roozbeh.toopan.databinding.ActivitySplashBinding
+import com.roozbeh.toopan.utility.FileManager
 
 
 class SplashActivity : AppCompatActivity(), View.OnClickListener {
@@ -26,6 +27,8 @@ class SplashActivity : AppCompatActivity(), View.OnClickListener {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
 
         initLayout()
+        FileManager.createFolder(Constants.BASE_FOLDER)
+        FileManager.createFolder(Constants.MEDIA)
     }
 
     private fun initLayout() {

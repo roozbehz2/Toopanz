@@ -44,7 +44,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private var cityId = 0
     private var genderId = 0
     private var imageData: ByteArray? = null
-    private var nameFile: String? = null
+    private lateinit var nameFile :String
 
     //    var cameraPhotoFilePath: Uri? = null
     private var permissionHandler: PermissionHandler? = null
@@ -111,11 +111,13 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private fun requestServer() {
         VolleyGetUser.getUser(
             object : VolleyInterface<User> {
-                override fun onSuccess(user: User) {
+                override fun onSuccess(user: User?) {
                     binding.pageWhiteEditProfile.visibility = View.GONE
                     binding.refreshEditProfile.visibility = View.GONE
                     binding.btnSaveInfo.isEnabled = true
-                    setContent(user)
+                    user?.let {
+                        setContent(it)
+                    }
                     requestServerState()
                     reqGender()
                 }
@@ -145,9 +147,11 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun reqGender() {
         VolleyGetGender.getGender(object : VolleyInterface<ListGender> {
-            override fun onSuccess(gender: ListGender) {
-                genders = gender
-                setGender()
+            override fun onSuccess(gender: ListGender?) {
+                gender?.let {
+                    genders = it
+                    setGender()
+                }
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -198,8 +202,8 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private fun requestServerState() {
 
         VolleyGetState.getState(object : VolleyInterface<ListState> {
-            override fun onSuccess(body: ListState) {
-                body.states?.let { setState(it) }
+            override fun onSuccess(body: ListState?) {
+                body?.states?.let { setState(it) }
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -263,8 +267,8 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private fun requestServerCity() {
 
         VolleyGetCity.getCity(object : VolleyInterface<ListCity> {
-            override fun onSuccess(city: ListCity) {
-                city.cities?.let { setCity(it) }
+            override fun onSuccess(city: ListCity?) {
+                city?.cities?.let { setCity(it) }
             }
 
             override fun onFailed(error: VolleyError?) {
@@ -389,8 +393,11 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
     private fun sendEditInfoRequest() {
 
         VolleyPostUpdateProfile.updateProfile(object : VolleyInterface<User> {
-            override fun onSuccess(body: User) {
-                setContent(body)
+            override fun onSuccess(body: User?) {
+                body?.let {
+
+                    setContent(it)
+                }
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE
                 ConnectionModel.instance.isUpdateUser = true
@@ -493,7 +500,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         val file = FileManager.generateFileName(
             "MyPhoto",
-            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).path
+            Constants.MEDIA
         )
         nameFile = file.name
         val uri = FileProvider.getUriForFile(
@@ -523,7 +530,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
         if (result.resultCode == RESULT_OK /*&& result.data != null*/) {
 
             val file = File(
-                Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+                Constants.MEDIA,
                 nameFile
             )
             val uri = FileProvider.getUriForFile(
@@ -549,7 +556,7 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         VolleySendImageEditProfile.sendImage(
             object : VolleyInterface<User> {
-                override fun onSuccess(body: User) {
+                override fun onSuccess(body: User?) {
                     sendEditInfoRequest()
 
                 }

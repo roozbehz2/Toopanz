@@ -79,5 +79,9 @@
     <string name="submit">ثبت</string>
     <string name="accept">تایید</string>
     <string name="forDeleteHoldItem">برای حذف کردن, روی عکس نگه دارید</string>
+    <string name="re_auth_try_again">اترایزیشن</string>
+    <string name="oneSelectPossibilities">حداقل یک امکانات را برای سالن انتخاب کنید</string>
+    <string name="active">فعال</string>
+    <string name="deActive">غیر فعال</string>
 
 </resources>

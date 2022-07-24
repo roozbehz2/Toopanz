@@ -18,4 +18,10 @@
         android:textDirection="rtl"
         app:showAsAction="ifRoom"
         android:title="@string/detailsAndEdit" />
+    <item
+        android:id="@+id/enableDisable"
+        android:icon="@drawable/ic_deactive"
+        android:textDirection="rtl"
+        app:showAsAction="ifRoom"
+        android:title="@string/deActive" />
 </menu>

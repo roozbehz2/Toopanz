@@ -19,6 +19,8 @@ object Constants {
     const val LOGIN_KEY = "loginUser"
     const val BUNDLE_ADD_OR_EDIT_KEY = "bundleAddOrEditSalon"
     const val MAP_STYLE = "mapStyle"
+    const val CITY_ID = "cityId"
+    const val STATE_ID = "stateId"
 
 
     var lat = 0.0
@@ -42,6 +44,7 @@ object Constants {
     const val GET_SALONS_INFO_ADD = "/salon/create-salon-data"
     const val GET_SALONS_INFO_EDIT = "/salon/get-salon-update/"
     const val POST_DELETE_IMAGE_SALON = "/salon/delete-salon-image"
+    const val POST_ADD_EDIT_SALON = "/salon"
 
 
     //Folders

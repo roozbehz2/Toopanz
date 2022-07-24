@@ -39,7 +39,8 @@ class ImagesSalonAdapter() : RecyclerView.Adapter<ImagesSalonAdapter.ViewHolder>
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        cnx?.let {it1->
+        Log.e("rrr", "onBindViewHolder: "+ items[position] )
+        cnx?.let { it1 ->
             Glide
                 .with(it1)
                 .load(Constants.BASE_URL + items[position])
@@ -64,6 +65,7 @@ class ImagesSalonAdapter() : RecyclerView.Adapter<ImagesSalonAdapter.ViewHolder>
                 true
             }
         }
+
     }
 
     override fun getItemCount(): Int = items.size

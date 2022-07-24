@@ -71,6 +71,7 @@
                             android:id="@+id/imgProfileADSalon"
                             android:layout_width="@dimen/_75sdp"
                             android:layout_height="@dimen/_75sdp"
+                            android:src="@drawable/ic_profile"
                             android:scaleType="centerCrop" />
 
                     </androidx.cardview.widget.CardView>
@@ -172,7 +173,7 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/spinnerSex"
+                        android:id="@+id/spinnerSexADSalon"
                         style="@style/Widget.AppTheme.AutoCompleteTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -206,7 +207,7 @@
                         android:background="@color/blueGrey3"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/spinnerSex"
+                        app:layout_constraintTop_toBottomOf="@id/spinnerSexADSalon"
                         app:layout_constraintWidth_percent=".9" />
 
 
@@ -244,7 +245,7 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/spinnerState"
+                        android:id="@+id/spinnerStateADSalon"
                         style="@style/Widget.AppTheme.AutoCompleteTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -254,7 +255,7 @@
                         app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
                         app:layout_constraintEnd_toEndOf="@id/txtInputLayoutTypeOwnershipSalon"
-                        app:layout_constraintStart_toEndOf="@id/spinnerCity"
+                        app:layout_constraintStart_toEndOf="@id/spinnerCityADSalon"
                         app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
 
                         <AutoCompleteTextView
@@ -270,7 +271,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/spinnerCity"
+                        android:id="@+id/spinnerCityADSalon"
                         style="@style/Widget.AppTheme.AutoCompleteTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -279,8 +280,8 @@
                         android:hint="@string/city"
                         app:errorEnabled="true"
                         android:textColorHint="@color/grey2"
-                        app:layout_constraintEnd_toStartOf="@id/spinnerState"
-                        app:layout_constraintStart_toStartOf="@id/spinnerSex"
+                        app:layout_constraintEnd_toStartOf="@id/spinnerStateADSalon"
+                        app:layout_constraintStart_toStartOf="@id/spinnerSexADSalon"
                         app:layout_constraintTop_toBottomOf="@id/txtAddressSalon">
 
                         <AutoCompleteTextView
@@ -306,9 +307,9 @@
                         app:autoSizeMaxTextSize="@dimen/_10ssp"
                         app:autoSizeMinTextSize="@dimen/_3ssp"
                         app:autoSizeTextType="uniform"
-                        app:layout_constraintEnd_toEndOf="@id/spinnerSex"
-                        app:layout_constraintStart_toStartOf="@id/spinnerSex"
-                        app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
+                        app:layout_constraintEnd_toEndOf="@id/spinnerSexADSalon"
+                        app:layout_constraintStart_toStartOf="@id/spinnerSexADSalon"
+                        app:layout_constraintTop_toBottomOf="@+id/spinnerCityADSalon" />
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -499,7 +500,7 @@
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/estedad_regular"
                             android:imeOptions="actionNext"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:overScrollMode="never"
                             android:paddingStart="@dimen/_32sdp"
                             android:paddingEnd="@dimen/_5sdp"
@@ -574,7 +575,7 @@
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/estedad_regular"
                             android:imeOptions="actionNext"
-                            android:inputType="text"
+                            android:inputType="number"
                             android:overScrollMode="never"
                             android:selectAllOnFocus="true"
                             android:textDirection="rtl"
@@ -726,6 +727,7 @@
             app:layout_constraintTop_toTopOf="@+id/btnSaveInfoADSalon"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
+            android:visibility="gone"
             app:lottie_rawRes="@raw/loading" />
 
 

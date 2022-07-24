@@ -1,12 +1,14 @@
 package com.roozbeh.toopan.adapter
 
 import android.content.Context
+import android.provider.Settings.Global.getString
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -108,8 +110,15 @@ class SalonsAdapter() :
 
         val popupMenu = PopupMenu(cnx, binding.imgDotsItemSalon)
         popupMenu.inflate(R.menu.menu_salon)
+        if (items[position].activate == true){
+            popupMenu.menu[2].title = cnx?.getString(R.string.deActive)
+            popupMenu.menu[2].icon = cnx?.getDrawable(R.drawable.ic_deactive)
+        }else{
+            popupMenu.menu[2].title = cnx?.getString(R.string.active)
+            popupMenu.menu[2].icon = cnx?.getDrawable(R.drawable.ic_active)
+        }
         popupMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener {
-            override fun onMenuItemClick(item: MenuItem?): kotlin.Boolean {
+            override fun onMenuItemClick(item: MenuItem?): Boolean {
                 if (item != null) {
                     when (item.itemId) {
                         R.id.jam -> {
@@ -118,7 +127,12 @@ class SalonsAdapter() :
                         R.id.edit -> {
                             listener.onEditSalon(items[position].id)
                         }
-                        else -> true
+                        R.id.enableDisable -> {
+                            /*item.title = cnx?.getString(R.string.active)
+                            item.icon =  cnx?.getDrawable(R.drawable.ic_active)*/
+                            listener.onActiveDeActive(items[position].id)
+                        }
+
 
                     }
                 }
@@ -134,7 +148,7 @@ class SalonsAdapter() :
                 val menu: Any? = popup.get(popupMenu)
                 menu?.javaClass?.getDeclaredMethod(
                     "setForceShowIcon",
-                    kotlin.Boolean::class.java
+                    Boolean::class.java
                 )
                     ?.invoke(menu, true)
 
@@ -149,7 +163,7 @@ class SalonsAdapter() :
     }
 
     interface OnItemClickListener {
-        fun onItemClick(/*id: String, marketCap:String, currentPrice:String, priceChangePercentage24h:Double*/)
+        fun onActiveDeActive(salonsId: Int?)
         fun onEditSalon(salonsId: Int?)
         fun onManageClick()
     }

@@ -2,6 +2,7 @@ package com.roozbeh.toopan.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -106,8 +107,10 @@ class SalonsFragment : Fragment(), View.OnClickListener {
         body.page = page
         body.size = 15
         VolleyGetSalons.getSalons(object : VolleyInterface<SalonsResponse> {
-            override fun onSuccess(body: SalonsResponse) {
-                if (body.salonResponses != null) {
+            override fun onSuccess(body: SalonsResponse?) {
+                binding.refreshAllSalons.visibility = View.GONE
+                binding.pageWhiteSalons.visibility = View.GONE
+                if (body?.salonResponses != null) {
                     if (body.totalElement == 0) {
                         binding.constNullSalons.visibility = View.VISIBLE
                         binding.constRecycler.visibility = View.INVISIBLE
@@ -134,7 +137,6 @@ class SalonsFragment : Fragment(), View.OnClickListener {
                     }
                 }
             }
-
         }, requireContext(), body, getSalonsTag)
     }
 
@@ -143,7 +145,7 @@ class SalonsFragment : Fragment(), View.OnClickListener {
         if (salonsAdapter == null || page == 0) {
             salonsAdapter =
                 SalonsAdapter(salons, requireContext(), object : SalonsAdapter.OnItemClickListener {
-                    override fun onItemClick() {
+                    override fun onActiveDeActive(salonsId: Int?) {
 
                     }
 

@@ -27,5 +27,42 @@ class FileManager {
             return file1
         }
 
+
+        /**
+         * create folder
+         *
+         * @param path file path
+         * @return file created folder
+         */
+        fun createFolder(path: String): Boolean {
+            val file = File(path)
+            return try {
+                if (!file.exists()) {
+                    file.mkdirs()
+                    true
+                } else {
+                    false
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                false
+            }
+        }
+
+
     }
+
+
+    /*
+    public static void deleteFile(String audioFilePath) {
+        try {
+            File file = new File(audioFilePath);
+
+            if (file.exists()) {
+                file.delete();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }*/
 }

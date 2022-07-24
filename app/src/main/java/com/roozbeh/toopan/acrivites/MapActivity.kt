@@ -191,11 +191,11 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
 
         selectedMarker?.latLng?.let { it1 ->
             VolleyGetAddressByLocationNeshan.getAddressNeshan(object :VolleyInterface<AddressNeshan>{
-                override fun onSuccess(body: AddressNeshan) {
+                override fun onSuccess(body: AddressNeshan?) {
 
                     selectedMarker?.latLng?.latitude?.let { it1 -> intent.putExtra("lat", it1) }
                     selectedMarker?.latLng?.longitude?.let { it1 -> intent.putExtra("lng", it1) }
-                    intent.putExtra("address", body.formatted_address)
+                    intent.putExtra("address", body?.formatted_address)
                     setResult(RESULT_OK, intent)
                     overridePendingTransition(
                         R.anim.slide_in_left,
@@ -261,9 +261,9 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
         val searchPosition: LatLng = binding.mapNeshan.cameraTargetPosition
 //        updateCenterMarker(searchPosition)
         VolleyGetSearchNeshan.getSearchNeshan(object : VolleyInterface<NeshanSearchResult> {
-            override fun onSuccess(body: NeshanSearchResult) {
+            override fun onSuccess(body: NeshanSearchResult?) {
 
-                if (body.count == 403) {
+                if (body?.count == 403) {
                     Utils.showSnackBar(
                         this@MapActivity, binding.etSearchOnMap, "کلید دسترسی نامعتبر",
                         getColor(R.color.snackBar)
@@ -271,7 +271,7 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
                     return
                 }
 
-                if (body.items != null) {
+                if (body?.items != null) {
                     items = (body.items as ArrayList<Item>)
                     if (items.isEmpty()) {
                         binding.recyclerSearchMap.visibility = View.GONE
