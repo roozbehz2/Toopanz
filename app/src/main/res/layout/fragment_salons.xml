@@ -23,7 +23,8 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constSearchSalons"
                 android:layout_width="0dp"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginTop="@dimen/_7sdp"
                 android:background="@drawable/border_white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +196,7 @@
             android:id="@+id/pageWhiteSalons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white" />
+            android:background="@color/blueGrey" />
 
 
         <com.airbnb.lottie.LottieAnimationView

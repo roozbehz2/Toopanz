@@ -2,7 +2,6 @@ package com.roozbeh.toopan.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +31,7 @@ class SalonsFragment : Fragment(), View.OnClickListener {
     private var manager: LinearLayoutManager? = null
     private var salonsAdapter: SalonsAdapter? = null
     private var salons = arrayListOf<Salons>()
-    private val getSalonsTag: String = "getSalonsTag"
+    private val getSalonsTag = "getSalonsTag"
     private var page = 0
 
     override fun onCreateView(
@@ -72,6 +71,11 @@ class SalonsFragment : Fragment(), View.OnClickListener {
             }
         })
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkNet(page)
     }
 
     private fun initRecycler() {

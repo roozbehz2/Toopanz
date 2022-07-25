@@ -70,6 +70,8 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
     private var salonTypesSelect: SalonTypes? = SalonTypes()
     private var salonPossibilitiesListSelect: ArrayList<SalonPossibilities>? = null
     private var salonStateSelect: State? = State()
+    private var salonStateSelectLoc = -1
+    private var salonCitySelectLoc = -1
     private var salonCityList: ListCity = ListCity()
     private var salonCitySelect: City? = City()
     private var salonsId: Int? = null
@@ -89,6 +91,7 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
         binding.imgChangeProfileADSalon.setOnClickListener(this)
         binding.txtBtnUploadImageADSalon.setOnClickListener(this)
         binding.btnSaveInfoADSalon.setOnClickListener(this)
+        binding.imgProfileADSalon.setOnClickListener(this)
 
         binding.toolbarADSalon.setNavigationOnClickListener {
             onBackPressed()
@@ -99,24 +102,45 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun checkCurrentLocation() {
 
+        if (salonStateSelect?.id == MyApplication.preferences().getInt(
+                Constants.STATE_ID,
+                -1
+            ) && salonCitySelect?.id == MyApplication.preferences().getInt(Constants.CITY_ID, -1)
+        ) {
+            binding.checkboxSalon.isChecked = true
+            currentLocation()
+        } else {
+
+            binding.checkboxSalon.isChecked = false
+            selectLocation()
+        }
         binding.checkboxSalon.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                salonCitySelect?.id = MyApplication.preferences().getInt(Constants.CITY_ID, -1)
-                salonStateSelect?.id = MyApplication.preferences().getInt(Constants.STATE_ID, -1)
-                binding.autoTextStateSalon.isEnabled = false
-                binding.autoTextCitySalon.isEnabled = false
-
+                currentLocation()
             } else {
-                binding.autoTextStateSalon.setText(infoSalon.states.find { state -> salon.city?.state?.name == state.name }?.name)
-                salonStateSelect =
-                    infoSalon.states.find { state -> salon.city?.state?.name == state.name }
-                binding.autoTextCitySalon.setText(salon.city?.name)
-                salonCitySelect = salon.city
-                binding.autoTextStateSalon.isEnabled = true
-                binding.autoTextCitySalon.isEnabled = true
+                selectLocation()
             }
         }
 
+
+    }
+
+    private fun selectLocation() {
+        binding.autoTextStateSalon.setText(infoSalon.states.find { state -> salon.city?.state?.name == state.name }?.name)
+        setState(infoSalon.states)
+        salonCitySelect = salon.city
+        salonStateSelect?.id?.let { checkNetForCity(it, false, city = false) }
+        binding.spinnerStateADSalon.isEnabled = true
+        binding.spinnerCityADSalon.isEnabled = true
+    }
+
+    private fun currentLocation() {
+        salonCitySelectLoc = MyApplication.preferences().getInt(Constants.CITY_ID, -1)
+        salonStateSelectLoc = MyApplication.preferences().getInt(Constants.STATE_ID, -1)
+        binding.autoTextStateSalon.setText(infoSalon.states.find { state -> state.id == salonStateSelectLoc }?.name)
+        checkNetForCity(salonStateSelectLoc, true, city = false)
+        binding.spinnerStateADSalon.isEnabled = false
+        binding.spinnerCityADSalon.isEnabled = false
 
     }
 
@@ -414,44 +438,47 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
 
 
     // city
-    private fun checkNetForCity() {
+    private fun checkNetForCity(salonStateSelect: Int, current: Boolean, city: Boolean) {
         NetDetector.check {
             if (it) {
-                requestServerCity()
+                requestServerCity(salonStateSelect, current, city)
             }
         }
     }
 
-    private fun requestServerCity() {
+    private fun requestServerCity(salonStateSelect: Int, current: Boolean, city: Boolean) {
 
-        salonStateSelect?.id?.let { it ->
-            VolleyGetCity.getCity(object : VolleyInterface<ListCity> {
-                override fun onSuccess(body: ListCity?) {
-                    body?.let {
-                        salonCityList = it
-                    }
-                    body?.cities?.let { setCity(it) }
-                }
-
-                override fun onFailed(error: VolleyError?) {
-                    if (error != null) {
-                        error.message?.let {
-                            Utils.showSnackBar(
-                                applicationContext,
-                                binding.spinnerCityADSalon,
-                                it,
-                                getColor(R.color.snackBar)
-                            )
-                        }
+        VolleyGetCity.getCity(object : VolleyInterface<ListCity> {
+            override fun onSuccess(body: ListCity?) {
+                body?.let {
+                    salonCityList = it
+                    if (current) {
+                        binding.autoTextCitySalon.setText(salonCityList.cities?.find { city -> city.id == salonCitySelectLoc }?.name)
+                    } else {
+                        it.cities?.let { it1 -> setCity(it1, city) }
                     }
                 }
+            }
 
-            }, this, it, getCitySalonTag)
-        }
+            override fun onFailed(error: VolleyError?) {
+                if (error != null) {
+                    error.message?.let {
+                        Utils.showSnackBar(
+                            applicationContext,
+                            binding.spinnerCityADSalon,
+                            it,
+                            getColor(R.color.snackBar)
+                        )
+                    }
+                }
+            }
+
+        }, this, salonStateSelect, getCitySalonTag)
+
 
     }
 
-    private fun setCity(city: List<City>) {
+    private fun setCity(city: List<City>, current: Boolean) {
         val item: ArrayList<String> = ArrayList()
         for (i in city.indices step 1) {
             city[i].name?.let { item.add(it) }
@@ -462,10 +489,16 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
             android.R.layout.select_dialog_item, item
         )
 
-        binding.autoTextCitySalon.setAdapter(adapter)
-        binding.autoTextCitySalon.postDelayed(Runnable {
-            binding.autoTextCitySalon.showDropDown()
-        }, 10)
+        if (current) {
+
+            binding.autoTextCitySalon.setAdapter(adapter)
+            binding.autoTextCitySalon.postDelayed(Runnable {
+                binding.autoTextCitySalon.showDropDown()
+            }, 10)
+        } else {
+
+            binding.autoTextCitySalon.setText(salon.city?.name)
+        }
 
 
         binding.autoTextCitySalon.onItemClickListener =
@@ -588,8 +621,7 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
                 salonStateSelect?.id = state[id.toInt()].id!!
                 UiHandler.keyboardDown(binding.autoTextStateSalon, this)
                 binding.autoTextStateSalon.isFocusable = false
-
-                checkNetForCity()
+                salonStateSelect?.id?.let { it1 -> checkNetForCity(it1, false, city = true) }
             }
 
     }
@@ -607,8 +639,8 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
         binding.autoTextTypeInterfaceSalon.setText(infoSalon.salonTypes.find { salonTypes -> salonTypes.type == salon.salonTypes?.first()?.type }?.type)
         binding.autoTextTypeOwnershipSalon.setText(infoSalon.ownership.find { ownership -> ownership.id == salon.ownership }?.type)
         binding.autoTextGenderSalon.setText(infoSalon.sexes.find { gender -> gender.id == salon.sex }?.type)
-        binding.autoTextStateSalon.setText(infoSalon.states.find { state -> salon.city?.state?.name == state.name }?.name)
         salonStateSelect = infoSalon.states.find { state -> salon.city?.state?.name == state.name }
+        binding.autoTextStateSalon.setText(salonStateSelect?.name)
         binding.autoTextCitySalon.setText(salon.city?.name)
         salonCitySelect = salon.city
         //todo address set
@@ -616,6 +648,7 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
         binding.etGetTimeStartEndADSalon.setText("از ${salon.startTime} تا ${salon.endTime}")
         binding.etPriceSessionADSalon.setText(salon.amount.toString())
         binding.etGetTimeOneSessionADSalon.setText(salon.periodMin.toString())
+
 
     }
 
@@ -702,15 +735,15 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
 
                     salon = it.salon
                     infoSalon = it
+                    setContent()
+                    setOwnerShip(infoSalon.ownership)
+                    setGender()
+                    setSalonType()
+                    initRecyclerPossibilities()
+                    initImageUploaded(salon)
+                    setState(infoSalon.states)
+                    checkCurrentLocation()
                 }
-                setContent()
-                setOwnerShip(infoSalon.ownership)
-                setGender()
-                setSalonType()
-                initRecyclerPossibilities()
-                initImageUploaded(salon)
-                setState(infoSalon.states)
-                checkCurrentLocation()
 
 
                 handleErrorEt()
@@ -954,7 +987,6 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
                 binding.spinnerStateADSalon.error = null
             }
         }
-
         binding.autoTextCitySalon.doOnTextChanged { text, start, before, count ->
             salonCitySelect =
                 salonCityList.cities?.find { city -> city.name == text.toString() }
@@ -1155,7 +1187,7 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
 
             binding.autoTextCitySalon.id -> {
                 if (salonStateSelect?.id != null) {
-                    checkNetForCity()
+                    checkNetForCity(salonStateSelect?.id!!, false, city = true)
                 } else {
                     UiHandler.keyboardDown(binding.autoTextCitySalon, this)
                     Utils.showSnackBar(
@@ -1167,6 +1199,12 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             binding.btnSaveInfoADSalon.id -> checkErrorET()
+            binding.imgProfileADSalon.id -> salon.avatar?.let {
+                Utils.openImageViewer(
+                    this, binding.imgProfileADSalon,
+                    Constants.BASE_URL + it
+                )
+            }
         }
     }
 

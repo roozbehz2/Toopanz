@@ -39,7 +39,6 @@ class ImagesSalonAdapter() : RecyclerView.Adapter<ImagesSalonAdapter.ViewHolder>
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.e("rrr", "onBindViewHolder: "+ items[position] )
         cnx?.let { it1 ->
             Glide
                 .with(it1)

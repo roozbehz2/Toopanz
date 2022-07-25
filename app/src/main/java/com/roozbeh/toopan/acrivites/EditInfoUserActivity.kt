@@ -394,9 +394,18 @@ class EditInfoUserActivity : AppCompatActivity(), View.OnClickListener {
 
         VolleyPostUpdateProfile.updateProfile(object : VolleyInterface<User> {
             override fun onSuccess(body: User?) {
-                body?.let {
-
-                    setContent(it)
+                body?.let { user1 ->
+                    setContent(user1)
+                    user1.city?.id?.let {
+                        MyApplication.preferences().edit().putInt(Constants.CITY_ID,
+                            it
+                        ).apply()
+                    }
+                    user1.city?.state?.id?.let {
+                        MyApplication.preferences().edit().putInt(Constants.STATE_ID,
+                            it
+                        ).apply()
+                    }
                 }
                 binding.btnSaveInfo.isEnabled = true
                 binding.btnLoadingProfile.visibility = View.GONE

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatActivity
@@ -80,6 +81,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             it
                         ).apply()
                     }
+                    Log.e("rrr", "onSuccess: "+ body?.user?.city?.state?.id )
                     MyApplication.preferences().edit().putString(Constants.REFRESH_TOKEN_KEY, body?.refToken)
                         .apply()
                     MyApplication.preferences().edit().putBoolean(Constants.LOGIN_KEY, true).apply()

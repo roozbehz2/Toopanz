@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.IntentSender
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
@@ -28,6 +29,7 @@ import com.carto.styles.*
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
+import com.google.android.material.snackbar.Snackbar
 import com.karumi.dexter.BuildConfig
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -96,6 +98,7 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
     private var locationSettingsRequest: LocationSettingsRequest? = null
     private var locationCallback: LocationCallback? = null
     private var lastUpdateTime: String? = null
+    private lateinit var snackbar: Snackbar
 
     // boolean flag to toggle the ui
     private var mRequestingLocationUpdates: Boolean? = null
@@ -108,6 +111,27 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
 //        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_map)
 
+        showSnackbar()
+    }
+
+    private fun showSnackbar() {
+
+
+        snackbar = Snackbar.make(binding.etSearchOnMap, "برای انتخاب لوکیشن نگه دارید", Snackbar.LENGTH_INDEFINITE)
+        snackbar.setAction("باشه") {
+            snackbar.dismiss()
+        }
+
+        val sbView = snackbar.view
+
+        sbView.setBackgroundColor(getColor(R.color.snackBar))
+        val textView =
+            snackbar.view.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
+        textView.setTextColor(Color.parseColor("#FFFFFF"))
+        textView.textAlignment = View.TEXT_ALIGNMENT_TEXT_START
+        textView.typeface = resources.getFont(R.font.estedad_regular)
+        textView.textSize = resources.getDimension(com.intuit.ssp.R.dimen._5ssp)
+        snackbar.show()
 
     }
 
@@ -123,11 +147,13 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
     override fun onResume() {
         super.onResume()
         startLocationUpdates()
+        showSnackbar()
     }
 
     override fun onPause() {
         super.onPause()
         stopLocationUpdates()
+        clearMarkers()
     }
 
     // Initializing layout references (views, map and map events)
@@ -145,6 +171,7 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
             )
             runOnUiThread {
                 binding.fabAddLocMap.show()
+                snackbar.dismiss()
             }
         }
 
@@ -190,7 +217,8 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
 
 
         selectedMarker?.latLng?.let { it1 ->
-            VolleyGetAddressByLocationNeshan.getAddressNeshan(object :VolleyInterface<AddressNeshan>{
+            VolleyGetAddressByLocationNeshan.getAddressNeshan(object :
+                VolleyInterface<AddressNeshan> {
                 override fun onSuccess(body: AddressNeshan?) {
 
                     selectedMarker?.latLng?.latitude?.let { it1 -> intent.putExtra("lat", it1) }
@@ -400,6 +428,7 @@ class MapActivity : AppCompatActivity(), SearchAdapter.OnSearchItemListener {
             )
         )
         binding.fabAddLocMap.show()
+        snackbar.dismiss()
         return styleCreator.buildStyle()
     }
 

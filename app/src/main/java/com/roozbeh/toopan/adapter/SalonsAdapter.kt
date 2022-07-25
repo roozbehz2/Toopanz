@@ -1,11 +1,7 @@
 package com.roozbeh.toopan.adapter
 
 import android.content.Context
-import android.provider.Settings.Global.getString
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.core.view.get
@@ -16,8 +12,6 @@ import com.roozbeh.toopan.R
 import com.roozbeh.toopan.databinding.ItemsSalonsBinding
 import com.roozbeh.toopan.modelApi.Salons
 import com.roozbeh.toopan.utility.Constants
-import kotlin.Exception
-import kotlin.Int
 
 
 class SalonsAdapter() :
@@ -103,8 +97,6 @@ class SalonsAdapter() :
     override fun getItemViewType(position: Int): Int {
         return position
     }
-
-
     //In the showMenu function from the previous example:
     private fun showMenu(binding: ItemsSalonsBinding, position: Int) {
 

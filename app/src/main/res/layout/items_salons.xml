@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border_grey_back_white"
-            android:padding="@dimen/_10sdp"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingTop="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -50,23 +52,24 @@
                 app:layout_constraintBottom_toBottomOf="@id/txtNameSalon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintWidth_percent=".09" />
+                app:layout_constraintWidth_percent=".05" />
 
             <TextView
                 android:id="@+id/txtNameSalon"
                 style="@style/textTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:gravity="start"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:maxLines="2"
-                android:text="@string/salonNoExist"
+                android:letterSpacing="0.14"
+                android:textAlignment="textEnd"
+                android:text="ssseeed"
+                android:textStyle="bold"
                 android:textColor="@color/blackToopan"
-                app:autoSizeMaxTextSize="@dimen/_13ssp"
+                app:autoSizeMaxTextSize="@dimen/_14ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toStartOf="@id/cvImgSalon"
-                app:layout_constraintStart_toEndOf="@id/imgDotsItemSalon"
                 app:layout_constraintTop_toTopOf="@id/cvImgSalon" />
 
             <TextView
@@ -74,13 +77,13 @@
                 style="@style/textDes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
                 android:gravity="top|start"
                 android:letterSpacing="0"
                 android:maxLines="3"
                 android:text="@string/desNoSalonExist"
                 android:textColor="@color/grey1"
-                app:autoSizeMaxTextSize="@dimen/_10ssp"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@id/cvImgSalon"
@@ -109,7 +112,7 @@
                 android:lines="1"
                 android:text="@string/titlePriceSince"
                 android:textColor="@color/grey2"
-                app:autoSizeMaxTextSize="@dimen/_10ssp"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/constAboutSinceSalon"
@@ -125,7 +128,7 @@
                 android:lines="1"
                 android:text="60000"
                 android:textColor="@color/grey1"
-                app:autoSizeMaxTextSize="@dimen/_10ssp"
+                app:autoSizeMaxTextSize="@dimen/_12ssp"
                 app:autoSizeMinTextSize="@dimen/_3ssp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintBottom_toBottomOf="@+id/constAboutSinceSalon"
@@ -156,7 +159,7 @@
                     android:lines="1"
                     android:text="@string/aboutSince"
                     android:textColor="@color/grey2"
-                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMaxTextSize="@dimen/_12ssp"
                     app:autoSizeMinTextSize="@dimen/_3ssp"
                     app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -173,7 +176,7 @@
                     android:lines="1"
                     android:text="@string/inProcess"
                     android:textColor="@color/blue"
-                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMaxTextSize="@dimen/_12ssp"
                     app:autoSizeMinTextSize="@dimen/_3ssp"
                     app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -360,7 +363,7 @@
             app:layout_constraintHeight_percent=".25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent=".15" />
+            app:layout_constraintWidth_percent=".12" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

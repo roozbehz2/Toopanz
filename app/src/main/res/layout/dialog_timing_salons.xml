@@ -21,6 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtSubmitDialogTiming"
             app:trp_stepTimeMinutes="30"
             app:trp_sliderWidth="@dimen/_10sdp"/>
 
@@ -75,7 +76,6 @@
                 style="@style/textDes"
                 android:layout_width="0dp"
                 android:layout_height="?attr/actionBarSize"
-                android:layout_marginTop="@dimen/_20sdp"
                 android:gravity="center"
                 android:text="@string/accept"
                 android:textColor="@color/blue"
@@ -85,6 +85,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/timePickerDialog"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 />
 
 
