@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/txtTimeSans"
+            style="@style/textDes"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingStart="@dimen/_1sdp"
+            android:paddingEnd="@dimen/_7sdp"
+            android:textColor="@color/grey1"
+            app:autoSizeMaxTextSize="@dimen/_12ssp"
+            app:autoSizeMinTextSize="@dimen/_3ssp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtTimeSans"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansFriday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansThursday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansWednesday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansTuesday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansMonday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansSunday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+            <View
+                android:id="@+id/sansSaturday"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/border_grey_free"
+                app:cardElevation="0dp" />
+
+            <View
+                android:layout_width="@dimen/_7sdp"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

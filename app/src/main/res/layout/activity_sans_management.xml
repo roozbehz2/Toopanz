@@ -1,12 +1,972 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".acrivites.SansManagementActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constToolAppBarSans"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/gapSans"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/txtTitleSans"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitleSans"
+                style="@style/textTitle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textColor="@color/blackToopan"
+                app:autoSizeMaxTextSize="@dimen/_14ssp"
+                app:autoSizeMinTextSize="@dimen/_3ssp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/imgBackSans"
+                app:layout_constraintStart_toEndOf="@id/gapSans"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgBackSans"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_11sdp"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtTitleSans"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/border_gradient_sans_management"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constToolAppBarSans"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constMonthSans"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="@dimen/_17sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent=".92">
+
+                <ImageView
+                    android:id="@+id/imgNextMonthSans"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_11sdp"
+                    android:src="@drawable/ic_arrow_left_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtCurrentMonthSans"
+                    style="@style/textTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/border_grey_back_trans"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_4sdp"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_14ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/imgPreviousMonthSans"
+                    app:layout_constraintStart_toEndOf="@id/imgNextMonthSans"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+
+                <ImageView
+                    android:id="@+id/imgPreviousMonthSans"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_11sdp"
+                    android:src="@drawable/ic_arrow_right_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constWeekSans"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constMonthSans">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constMonthAndWeek"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="match_parent"
+                    android:rotation="-45"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/txtMonthSans"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/month"
+                        android:textColor="@color/gold"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toTopOf="@id/lineSans"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/lineSans"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:background="@color/white"
+                        app:layout_constraintBottom_toTopOf="@id/txtWeekSans"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtMonthSans"
+                        app:layout_constraintWidth_percent=".7" />
+
+                    <TextView
+                        android:id="@+id/txtWeekSans"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="@string/hours"
+                        android:textColor="@color/gold"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lineSans" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/constMonthAndWeek"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="ج"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="پ"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="چ"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="س"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="د"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="ی"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="ش"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+                        <TextView
+                            android:id="@+id/txtDateFriday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateThursday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateWednesday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateTuesday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateMonday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateSunday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+
+                        <TextView
+                            android:id="@+id/txtDateSaturday"
+                            style="@style/textDes"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:textColor="@color/white"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintBottom_toTopOf="@id/lineSans"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="@dimen/_7sdp"
+                            android:layout_height="0dp" />
+                    </TableRow>
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recySansSalon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/constDes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constWeekSans"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constDes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                app:layout_constraintBottom_toTopOf="@+id/gapDesSans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/txtMenDes"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:text="@string/forMen"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:drawableRightCompat="@drawable/ic_men_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/txtWomenDes"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtWomenDes"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:text="@string/forWomen"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:drawableRightCompat="@drawable/ic_women_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txtMenDes"
+                    app:layout_constraintStart_toEndOf="@id/txtReservedDes"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtReservedDes"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:text="@string/reserved"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:drawableRightCompat="@drawable/ic_circle_white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txtWomenDes"
+                    app:layout_constraintStart_toEndOf="@id/txtFreeDes"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/txtFreeDes"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:text="@string/free"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:drawableRightCompat="@drawable/ic_circle_grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txtReservedDes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/gapDesSans"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_55sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constToolAppBarSans"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_bottom_sheet_white"
+                app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+                <!--       todo         visibel-->
+                <TextView
+                    style="@style/textDes"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:gravity="center"
+                    android:text="@string/desSansReserve"
+                    android:textColor="@color/grey1"
+                    android:visibility="visible"
+                    app:autoSizeMaxTextSize="@dimen/_10sdp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".7" />
+
+                <!--       todo         visibel-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constEditSans"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/txtCountSansSelectedEdit"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_55sdp"
+                        android:text="۵ سانس انتخاب شده است.
+ گزینه مورد نظر را انتخاب کنید."
+                        android:textAlignment="textStart"
+                        android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_10sdp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/txtEditSans"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent=".4" />
+
+
+                    <TextView
+                        android:id="@+id/txtCancelEditSans"
+                        style="@style/textDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_55sdp"
+                        android:gravity="center"
+                        android:text="@string/cancel2"
+                        android:textColor="@color/red"
+                        app:autoSizeMaxTextSize="@dimen/_10sdp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtEditSans"
+                        style="@style/textDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_55sdp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:text="@string/editSans"
+                        android:textColor="@color/blue"
+                        app:autoSizeMaxTextSize="@dimen/_10sdp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintStart_toEndOf="@id/txtCancelEditSans"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--       todo         visibel-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constBaseEditWithBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--       todo         visibel-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constEditWithRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recySansSelected"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_15sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHeight="@dimen/_100sdp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:id="@+id/lineBetweenRecyCountSans"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:background="@color/blueGrey"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/recySansSelected" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <TextView
+                        android:id="@+id/txtReservedSansCount"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="start|center"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:text="۳ سانس انتخاب شده است."
+                        android:textColor="@color/black"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/constEditWithRecyclerView" />
+
+
+                    <TextView
+                        android:id="@+id/txtReservedSansDes"
+                        style="@style/textDes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|center"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:text="@string/desForSansEdit"
+                        android:textColor="@color/grey1"
+                        app:autoSizeMaxTextSize="@dimen/_10sdp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtReservedSansCount" />
+
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupGender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtReservedSansDes">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:layoutDirection="rtl"
+                            android:text="سانس مخصوص آقایان"
+                            android:textColor="@color/grey1"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:fontFamily="@font/estedad_regular"
+                            android:layoutDirection="rtl"
+                            android:text="سانس مخصوص بانوان"
+                            android:textColor="@color/grey1"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform" />
+                    </RadioGroup>
+
+
+                    <View
+                        android:id="@+id/lineBetweenRadioPriceSans"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@color/blueGrey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/radioGroupGender" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constEditSansWithPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lineBetweenRadioPriceSans">
+
+
+                        <TextView
+                            android:id="@+id/txtDesSansPrice"
+                            style="@style/textDes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_45sdp"
+                            android:maxLines="1"
+                            android:text="قیمت: "
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey2"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/txtSansPrice"
+                            style="@style/textDes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_45sdp"
+                            android:maxLines="1"
+                            android:text="50000"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/grey1"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintEnd_toStartOf="@id/txtDesSansPrice"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toEndOf="@+id/txtSubmitPriceSans"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <TextView
+                            android:id="@+id/txtCancelReserveSans"
+                            style="@style/textDes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_45sdp"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/cancelReserve"
+                            android:textColor="@color/red"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txtSubmitPriceSans"
+                            style="@style/textDes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="@string/submitPrice"
+                            android:textColor="@color/blue"
+                            app:autoSizeMaxTextSize="@dimen/_12ssp"
+                            app:autoSizeMinTextSize="@dimen/_3ssp"
+                            app:autoSizeTextType="uniform"
+                            app:layout_constraintStart_toEndOf="@id/txtCancelReserveSans"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/lineBetweenPriceSansBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@color/blueGrey"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/constEditSansWithPrice" />
+
+
+                    <Button
+                        android:id="@+id/btnSaveInfoADSalon"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/bg_shape_blue"
+                        android:text="@string/acceptChanged"
+                        android:textColor="@color/white"
+                        android:theme="@style/roundedCornerMaterialButtonBlue"
+                        app:autoSizeMaxTextSize="@dimen/_12ssp"
+                        app:autoSizeMinTextSize="@dimen/_3ssp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/lineBetweenPriceSansBtn" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

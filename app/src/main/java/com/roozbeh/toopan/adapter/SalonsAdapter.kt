@@ -64,7 +64,7 @@ class SalonsAdapter() :
         }
 
         holder.binding.constManageSinceSalon.setOnClickListener {
-            listener.onManageClick()
+            items[position].id?.let { it1 -> listener.onManageClick(it1) }
         }
 
         holder.binding.constCreateJam.setOnClickListener {
@@ -157,6 +157,6 @@ class SalonsAdapter() :
     interface OnItemClickListener {
         fun onActiveDeActive(salonsId: Int?)
         fun onEditSalon(salonsId: Int?)
-        fun onManageClick()
+        fun onManageClick(salonsId: Int)
     }
 }

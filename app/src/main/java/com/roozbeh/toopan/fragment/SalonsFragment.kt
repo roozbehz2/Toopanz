@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.VolleyError
 import com.roozbeh.toopan.R
 import com.roozbeh.toopan.acrivites.AddOrEditSalonActivity
+import com.roozbeh.toopan.acrivites.SansManagementActivity
 import com.roozbeh.toopan.adapter.SalonsAdapter
 import com.roozbeh.toopan.communication.netDetector.NetDetector
 import com.roozbeh.toopan.communication.volleyPackage.VolleyController
@@ -158,8 +159,8 @@ class SalonsFragment : Fragment(), View.OnClickListener {
                     }
 
 
-                    override fun onManageClick() {
-                        manageSalon()
+                    override fun onManageClick(salonsId: Int) {
+                        manageSalon(salonsId)
                     }
 
                 })
@@ -176,7 +177,17 @@ class SalonsFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    private fun manageSalon() {
+    private fun manageSalon(salonsId: Int) {
+
+        val intent = Intent(requireContext(), SansManagementActivity::class.java)
+
+        intent.putExtra(Constants.BUNDLE_ADD_OR_EDIT_KEY, salonsId)
+
+        startActivity(intent)
+        requireActivity().overridePendingTransition(
+            R.anim.slide_in_left,
+            R.anim.slide_out_right
+        )
 
     }
 

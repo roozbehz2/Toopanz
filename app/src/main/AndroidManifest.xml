@@ -27,8 +27,9 @@
         android:windowSoftInputMode="adjustPan"
         tools:targetApi="31">
         <activity
-            android:name=".SansManagementActivity"
-            android:exported="false" />
+            android:name=".acrivites.SansManagementActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".acrivites.MapActivity"
             android:exported="true"

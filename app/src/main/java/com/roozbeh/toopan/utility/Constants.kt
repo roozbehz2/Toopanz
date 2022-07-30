@@ -45,6 +45,7 @@ object Constants {
     const val GET_SALONS_INFO_EDIT = "/salon/get-salon-update/"
     const val POST_DELETE_IMAGE_SALON = "/salon/delete-salon-image"
     const val POST_ADD_EDIT_SALON = "/salon"
+    const val POST_SALON_WEEK_SANS = "/salon/get-salon-weak-sanse"
 
 
     //Folders

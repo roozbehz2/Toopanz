@@ -203,15 +203,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="start|center"
                     android:lines="1"
-                    android:paddingEnd="@dimen/_10sdp"
                     android:text="@string/manageSince"
                     android:textColor="@color/blue"
-                    app:autoSizeMaxTextSize="@dimen/_12ssp"
+                    android:textStyle="bold"
+                    app:autoSizeMaxTextSize="@dimen/_14ssp"
                     app:autoSizeMinTextSize="@dimen/_3ssp"
                     app:autoSizeTextType="uniform"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/imgEditArrowProfile"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView

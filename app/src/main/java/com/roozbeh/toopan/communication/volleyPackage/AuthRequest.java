@@ -90,7 +90,7 @@ public class AuthRequest<T> extends Request<T> {
             authHeader.put("Authorization", "Bearer " + MyApplication.Companion.preferences().getString(Constants.TOKEN_KEY, ""));
             this.headers = authHeader;
         } else {
-
+// for map neshan
             Map<String, String> authHeader2 = new HashMap<>();
             authHeader2.put("Api-Key", "service.d2647ba1766f4366a764c9953e4b65f3");
             this.headers = authHeader2;

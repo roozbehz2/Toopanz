@@ -83,5 +83,19 @@
     <string name="oneSelectPossibilities">حداقل یک امکانات را برای سالن انتخاب کنید</string>
     <string name="active">فعال</string>
     <string name="deActive">غیر فعال</string>
+    <string name="week">هفته</string>
+    <string name="month">هفته</string>
+    <string name="hours">ساعت</string>
+    <string name="forMen">مخصوص آقایان</string>
+    <string name="forWomen">مخصوص بانوان</string>
+    <string name="reserved">رزرو شده</string>
+    <string name="free">آزاد</string>
+    <string name="desSansReserve">برای دیدن جزئیات و اعمال تغییرات بر روی سانس مورد نظر کلیک کنید</string>
+    <string name="cancel2">انصراف</string>
+    <string name="editSans">ویرایش سانسها</string>
+    <string name="desForSansEdit">تغییر پارامترهای زیر برای کل سانس های انتخاب شده اعمال میشود</string>
+    <string name="cancelReserve">لغو رزرو</string>
+    <string name="submitPrice">تعیین قیمت</string>
+    <string name="acceptChanged">اعمال تغییرات</string>
 
 </resources>

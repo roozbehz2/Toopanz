@@ -9,18 +9,27 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/blur_blue.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/blur_list.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_blue_btn.xml" value="0.168" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_bottom_sheet_white.xml" value="0.1745" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_gradient_sans_management.xml" value="0.1685" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_back_gery.xml" value="0.1995" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_back_trans.xml" value="0.197" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_back_white.xml" value="0.1665" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_free.xml" value="0.176" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_free_selected.xml" value="0.176" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_icon_profile.xml" value="0.167" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_orange_btn.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white.xml" value="0.2" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white_reserved.xml" value="0.251" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white_reserved_selected.xml" value="0.251" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_with_dash.xml" value="0.172" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/circle_blue.xml" value="0.1655" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/circle_transparent_grey.xml" value="0.1765" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_active.xml" value="0.1725" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_left.xml" value="0.1995" />
-        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_left_blue.xml" value="0.1995" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_left_blue.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_left_white.xml" value="0.1685" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_right.xml" value="0.174" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_right_white.xml" value="0.1685" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_call.xml" value="0.167" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_current_location.xml" value="0.1705" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_edit.xml" value="0.167" />
@@ -29,11 +38,13 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_edit_white.xml" value="0.1655" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_game.xml" value="0.2265" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_logout.xml" value="0.167" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_men_icon.xml" value="0.171" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_profile.xml" value="0.1655" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_search.xml" value="0.168" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_time_circle.xml" value="0.172" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_time_circle_white.xml" value="0.172" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_wallet.xml" value="0.167" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/layer_sans_men_reserved.xml" value="0.171" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/line_with_dash.xml" value="0.172" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/navigation_bar_color.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ripple_null.xml" value="0.167" />
@@ -43,7 +54,7 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_map.xml" value="0.2" />
-        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_sans_management.xml" value="0.23055555555555557" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_sans_management.xml" value="0.264" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_search.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_splash.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/dialog_timing_salons.xml" value="0.23055555555555557" />
@@ -53,9 +64,11 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/fragment_salons.xml" value="0.264" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/fragment_tournament.xml" value="0.259375" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/item_search_neshan.xml" value="0.264" />
-        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_images_salon.xml" value="0.6" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_images_salon.xml" value="0.4" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_possibilities.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_salons.xml" value="0.264" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_sans_week.xml" value="0.264" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/layout_bottom_sheet.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/menu/menu_end_gravity.xml" value="0.19375" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/menu/menu_salon.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/menu/nav_menu.xml" value="0.259375" />
