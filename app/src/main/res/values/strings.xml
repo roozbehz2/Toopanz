@@ -86,10 +86,11 @@
     <string name="week">هفته</string>
     <string name="month">هفته</string>
     <string name="hours">ساعت</string>
-    <string name="forMen">مخصوص آقایان</string>
-    <string name="forWomen">مخصوص بانوان</string>
+    <string name="forMen">آقایان</string>
+    <string name="forWomen">بانوان</string>
     <string name="reserved">رزرو شده</string>
     <string name="free">آزاد</string>
+    <string name="disable">غیرفعال</string>
     <string name="desSansReserve">برای دیدن جزئیات و اعمال تغییرات بر روی سانس مورد نظر کلیک کنید</string>
     <string name="cancel2">انصراف</string>
     <string name="editSans">ویرایش سانسها</string>

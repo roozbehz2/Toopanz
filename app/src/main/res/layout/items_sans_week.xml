@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_6sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -15,7 +15,7 @@
         <TextView
             android:id="@+id/txtTimeSans"
             style="@style/textDes"
-            android:layout_width="@dimen/_60sdp"
+            android:layout_width="@dimen/_55sdp"
             android:layout_height="0dp"
             android:gravity="center"
             android:maxLines="1"
@@ -30,112 +30,295 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <LinearLayout
+        <TableRow
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/txtTimeSans"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansFriday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansFriday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansFriday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansFriday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansThursday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansThursday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansThursday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansThursday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansWednesday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansWednesday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansWednesday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansWednesday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansTuesday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansTuesday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansTuesday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansTuesday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansMonday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansMonday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansMonday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansMonday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansSunday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansSunday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansSunday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansSunday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-            <View
-                android:id="@+id/sansSaturday"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constSansSaturday"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:background="@drawable/border_grey_free"
-                app:cardElevation="0dp" />
+                android:background="@drawable/border_grey_free">
+
+                <ImageView
+                    android:id="@+id/imgSexSansSaturday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".25"
+                    app:layout_constraintHorizontal_bias="0.85"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.15"
+                    app:layout_constraintWidth_percent=".25" />
+
+                <ImageView
+                    android:id="@+id/imgSelectSansSaturday"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_selected_sans"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent=".4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_width="@dimen/_7sdp"
+                android:layout_width="@dimen/_6sdp"
                 android:layout_height="0dp" />
 
-        </LinearLayout>
-
+        </TableRow>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

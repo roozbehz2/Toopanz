@@ -59,10 +59,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
             android:background="@drawable/border_gradient_sans_management"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent=".9"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/constToolAppBarSans"
             app:layout_constraintVertical_bias="1.0">
@@ -71,7 +71,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constMonthSans"
                 android:layout_width="0dp"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="@dimen/_35sdp"
                 android:layout_marginTop="@dimen/_17sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
                     android:id="@+id/txtCurrentMonthSans"
                     style="@style/textTitle"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/border_grey_back_trans"
                     android:gravity="center"
                     android:paddingHorizontal="@dimen/_4sdp"
@@ -121,7 +121,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constWeekSans"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_60sdp"
+                android:layout_height="@dimen/_55sdp"
                 android:layout_marginTop="@dimen/_15sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +129,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constMonthAndWeek"
-                    android:layout_width="@dimen/_60sdp"
+                    android:layout_width="@dimen/_55sdp"
                     android:layout_height="match_parent"
                     android:rotation="-45"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -201,8 +201,9 @@
                         android:orientation="horizontal">
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
+
                         <TextView
                             style="@style/textDes"
                             android:layout_width="0dp"
@@ -221,7 +222,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -242,7 +243,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -263,7 +264,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -284,7 +285,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -305,7 +306,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -326,7 +327,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -347,7 +348,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                     </TableRow>
@@ -359,8 +360,9 @@
                         android:layout_weight="1">
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
+
                         <TextView
                             android:id="@+id/txtDateFriday"
                             style="@style/textDes"
@@ -369,7 +371,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -379,7 +381,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -390,7 +392,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -400,7 +402,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -411,7 +413,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -421,7 +423,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -432,7 +434,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -442,7 +444,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -453,7 +455,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -463,7 +465,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -474,7 +476,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -484,7 +486,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
 
                         <TextView
@@ -495,7 +497,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:maxLines="1"
-                            android:textColor="@color/white"
+                            android:textColor="@color/grey1"
                             app:autoSizeMaxTextSize="@dimen/_12ssp"
                             app:autoSizeMinTextSize="@dimen/_3ssp"
                             app:autoSizeTextType="uniform"
@@ -505,7 +507,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <View
-                            android:layout_width="@dimen/_7sdp"
+                            android:layout_width="@dimen/_6sdp"
                             android:layout_height="0dp" />
                     </TableRow>
 
@@ -539,7 +541,7 @@
                     style="@style/textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/_3sdp"
+                    android:drawablePadding="@dimen/_2sdp"
                     android:gravity="center"
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/_2sdp"
@@ -559,7 +561,7 @@
                     style="@style/textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/_3sdp"
+                    android:drawablePadding="@dimen/_2sdp"
                     android:gravity="center"
                     android:maxLines="1"
                     android:paddingHorizontal="@dimen/_2sdp"
@@ -579,7 +581,7 @@
                     style="@style/textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/_3sdp"
+                    android:drawablePadding="@dimen/_2sdp"
                     android:gravity="center"
                     android:paddingHorizontal="@dimen/_2sdp"
                     android:text="@string/reserved"
@@ -598,7 +600,7 @@
                     style="@style/textTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawablePadding="@dimen/_3sdp"
+                    android:drawablePadding="@dimen/_2sdp"
                     android:gravity="center"
                     android:paddingHorizontal="@dimen/_2sdp"
                     android:text="@string/free"
@@ -609,6 +611,26 @@
                     app:drawableRightCompat="@drawable/ic_circle_grey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/txtReservedDes"
+                    app:layout_constraintStart_toEndOf="@+id/txtDisableDes"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/txtDisableDes"
+                    style="@style/textTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:text="@string/disable"
+                    android:textColor="@color/white"
+                    app:autoSizeMaxTextSize="@dimen/_10ssp"
+                    app:autoSizeMinTextSize="@dimen/_3ssp"
+                    app:autoSizeTextType="uniform"
+                    app:drawableRightCompat="@drawable/ic_circle_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txtFreeDes"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

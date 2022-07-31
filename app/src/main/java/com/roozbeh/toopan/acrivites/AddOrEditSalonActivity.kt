@@ -148,6 +148,9 @@ class AddOrEditSalonActivity : AppCompatActivity(), View.OnClickListener {
         if (binding.btnLoadingADSalon.visibility == View.GONE) {
             super.onBackPressed()
             finish()
+            overridePendingTransition(
+                R.anim.slide_in_right,
+                R.anim.slide_out_left)
         }
     }
 

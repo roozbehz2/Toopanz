@@ -182,6 +182,7 @@ class SalonsFragment : Fragment(), View.OnClickListener {
         val intent = Intent(requireContext(), SansManagementActivity::class.java)
 
         intent.putExtra(Constants.BUNDLE_ADD_OR_EDIT_KEY, salonsId)
+        intent.putExtra("nameSalon", salons.find { salons -> salons.id == salonsId }?.name)
 
         startActivity(intent)
         requireActivity().overridePendingTransition(

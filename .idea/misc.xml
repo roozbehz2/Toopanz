@@ -9,6 +9,7 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/blur_blue.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/blur_list.xml" value="0.162" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_blue_btn.xml" value="0.168" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_blue_selected.xml" value="0.176" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_bottom_sheet_white.xml" value="0.1745" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_gradient_sans_management.xml" value="0.1685" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_back_gery.xml" value="0.1995" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_grey_free_selected.xml" value="0.176" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_icon_profile.xml" value="0.167" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_orange_btn.xml" value="0.162" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_red.xml" value="0.171" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white.xml" value="0.2" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white_reserved.xml" value="0.251" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_white_reserved_selected.xml" value="0.251" />
@@ -31,6 +33,8 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_right.xml" value="0.174" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_arrow_right_white.xml" value="0.1685" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_call.xml" value="0.167" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_circle_red.xml" value="0.171" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_circle_white.xml" value="0.171" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_current_location.xml" value="0.1705" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_edit.xml" value="0.167" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_edit_blue.xml" value="0.1995" />
