@@ -58,7 +58,7 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_map.xml" value="0.2" />
-        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_sans_management.xml" value="0.264" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_sans_management.xml" value="0.32149774047772756" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_search.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/activity_splash.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/dialog_timing_salons.xml" value="0.23055555555555557" />
@@ -68,6 +68,8 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/fragment_salons.xml" value="0.264" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/fragment_tournament.xml" value="0.259375" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/item_search_neshan.xml" value="0.264" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/item_spinner_months.xml" value="0.21196581196581196" />
+        <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/item_spinner_months_transparent.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_images_salon.xml" value="0.4" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_possibilities.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/layout/items_salons.xml" value="0.264" />
@@ -78,6 +80,8 @@
         <entry key="..\:/Users/Roozbeh/AndroidStudioProjects/Toopan/app/src/main/res/menu/nav_menu.xml" value="0.259375" />
         <entry key="..\:/Users/Roozbeh/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/select_dialog_item.xml" value="0.23055555555555557" />
         <entry key="..\:/Users/Roozbeh/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.23055555555555557" />
+        <entry key="..\:/Users/Roozbeh/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.2128205128205128" />
+        <entry key="..\:/Users/Roozbeh/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.2128205128205128" />
         <entry key="..\:/Users/roozb/AndroidStudioProjects/Toopan/app/src/main/res/drawable/border_orange_btn.xml" value="0.205" />
         <entry key="..\:/Users/roozb/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_clubs.xml" value="0.205" />
         <entry key="..\:/Users/roozb/AndroidStudioProjects/Toopan/app/src/main/res/drawable/ic_home.xml" value="0.205" />

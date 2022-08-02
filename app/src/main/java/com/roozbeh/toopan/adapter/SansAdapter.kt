@@ -16,16 +16,16 @@ import com.roozbeh.toopan.databinding.ItemsSansWeekBinding
 import com.roozbeh.toopan.modelApi.WeekSalonSanseResponse
 
 class SansAdapter(
-    val item: WeekSalonSanseResponse,
+    var item: WeekSalonSanseResponse,
     private val cnx: Context
 ) : RecyclerView.Adapter<SansAdapter.ViewHolder>() {
 
-    private var statusSunday: Status = Status.NOT_RESERVED
     private var statusSaturday: Status = Status.NOT_RESERVED
+    private var statusSunday: Status = Status.NOT_RESERVED
     private var statusMonday: Status = Status.NOT_RESERVED
     private var statusTuesday: Status = Status.NOT_RESERVED
     private var statusWednesday: Status = Status.NOT_RESERVED
-    private var statusThursDay: Status = Status.NOT_RESERVED
+    private var statusThursday: Status = Status.NOT_RESERVED
     private var statusFriday: Status = Status.NOT_RESERVED
 
     private var sexStatusSunday: SexStatus = SexStatus.TWO_TYPE
@@ -66,13 +66,20 @@ class SansAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         item.times?.get(position)?.let { holder.binding.txtTimeSans.text = it }
+        holder.binding.imgSelectSansSunday.visibility = View.GONE
+        holder.binding.imgSelectSansSaturday.visibility = View.GONE
+        holder.binding.imgSelectSansMonday.visibility = View.GONE
+        holder.binding.imgSelectSansTuesday.visibility = View.GONE
+        holder.binding.imgSelectSansWednesday.visibility = View.GONE
+        holder.binding.imgSelectSansThursday.visibility = View.GONE
+        holder.binding.imgSelectSansFriday.visibility = View.GONE
         //enum status
         item.sunday?.get(position)?.sanseStatus?.let { statusSunday = enumValueOf(it) }
         item.saturday?.get(position)?.sanseStatus?.let { statusSaturday = enumValueOf(it) }
         item.monday?.get(position)?.sanseStatus?.let { statusMonday = enumValueOf(it) }
         item.tuesday?.get(position)?.sanseStatus?.let { statusTuesday = enumValueOf(it) }
         item.wednesday?.get(position)?.sanseStatus?.let { statusWednesday = enumValueOf(it) }
-        item.thursday?.get(position)?.sanseStatus?.let { statusThursDay = enumValueOf(it) }
+        item.thursday?.get(position)?.sanseStatus?.let { statusThursday = enumValueOf(it) }
         item.friday?.get(position)?.sanseStatus?.let { statusFriday = enumValueOf(it) }
         //enum status
 
@@ -91,7 +98,7 @@ class SansAdapter(
         holder.binding.constSansMonday.background = initialStatus(statusMonday)
         holder.binding.constSansTuesday.background = initialStatus(statusTuesday)
         holder.binding.constSansWednesday.background = initialStatus(statusWednesday)
-        holder.binding.constSansThursday.background = initialStatus(statusThursDay)
+        holder.binding.constSansThursday.background = initialStatus(statusThursday)
         holder.binding.constSansFriday.background = initialStatus(statusFriday)
 
         holder.binding.imgSexSansSunday.setImageDrawable(initialGender(sexStatusSunday))
@@ -124,8 +131,8 @@ class SansAdapter(
             view.background = selected(holder.binding.imgSelectSansWednesday, statusWednesday)
         }
         holder.binding.constSansThursday.setOnClickListener { view ->
-            item.thursday?.get(position)?.sanseStatus?.let { statusThursDay = enumValueOf(it) }
-            view.background = selected(holder.binding.imgSelectSansThursday, statusThursDay)
+            item.thursday?.get(position)?.sanseStatus?.let { statusThursday = enumValueOf(it) }
+            view.background = selected(holder.binding.imgSelectSansThursday, statusThursday)
         }
         holder.binding.constSansFriday.setOnClickListener { view ->
             item.friday?.get(position)?.sanseStatus?.let { statusFriday = enumValueOf(it) }
@@ -137,6 +144,9 @@ class SansAdapter(
 
     override fun getItemCount(): Int = item.times?.size ?: 0
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
     class ViewHolder(var binding: ItemsSansWeekBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -180,5 +190,12 @@ class SansAdapter(
 
         }
     }
+
+    @JvmName("setItem1")
+    fun setItem(item: WeekSalonSanseResponse){
+        this.item = item
+    }
+//    companion object{
+//    }
 
 }
